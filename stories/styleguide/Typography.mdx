@@ -1,0 +1,74 @@
+import { Meta, Title, Source, Unstyled } from "@storybook/blocks";
+
+export const SampleText = () => {
+    return 'Display Title'
+};
+
+<Meta title="Typography / Display Headings" />
+
+<Unstyled>
+  
+  <header class="mb-8">
+    <h1 class="text-4xl mb-4">Display Headings</h1>
+    <p className="font-light">
+      Headings in typography are essential elements used to establish a clear hierarchy within content. They guide the reader through the structure of the content, making it easier to understand and navigate. Headings range from large, impactful titles to smaller, more detailed subheadings, each serving a distinct role in emphasizing the importance of the text.
+    </p>
+   </header>
+   
+    <hr class="mb-8" />
+
+    <section>
+      <h2>Display 1 - Black</h2>
+      <p>This is a Display 1 heading with the font-weight set to black.</p>
+      <div className="font-black text-7xl">Display 1 - Black</div>
+      <Source
+        code={`<div class="font-black text-7xl">Display 1 - Black</div>`}
+        language="html"
+        dark
+      />
+    </section>
+
+    <section>
+      <h2>Display 2 - Bold</h2>
+      <p>This is a Display 2 heading with the font-weight set to bold.</p>
+      <div className="font-bold text-6xl">Display 2 - Bold</div>
+      <Source
+        code={`<div class="font-bold text-6xl">Display 2 - Bold</div>`}
+        language="html"
+        dark
+      />
+    </section>
+
+    <section>
+      <h2>Display 3 - Semi-Bold</h2>
+      <p>This is a Display 3 heading with the font-weight set to semi-bold.</p>
+      <div className="font-semibold text-5xl">Display 3 - Semi-Bold</div>
+      <Source
+        code={`<div class="font-semibold text-5xl">Display 3 - Semi-Bold</div>`}
+        language="html"
+        dark
+      />
+    </section>
+
+    <section>
+      <h2>Display 4 - Normal</h2>
+      <p>This is a Display 4 heading with the font-weight set to normal.</p>
+      <div className="font-normal text-4xl">Display 4 - Normal</div>
+      <Source
+        code={`<div class="font-normal text-4xl">Display 4 - Normal</div>`}
+        language="html"
+        dark
+      />
+    </section>
+
+    <section>
+      <h2>Display 5 - Light</h2>
+      <p>This is a Display 5 heading with the font-weight set to light.</p>
+      <div className="font-light text-3xl">Display 5 - Light</div>
+      <Source
+        code={`<div class="font-light text-3xl">Display 5 - Light</div>`}
+        language="html"
+        dark
+      />
+    </section>
+    </Unstyled>
