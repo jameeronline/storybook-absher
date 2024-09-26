@@ -1,7 +1,7 @@
-import { buttonRenderer } from "./Wind_ButtonRenderer"; // Import the render function
+import { createButton } from "../buttons/Button";
 
 export default {
-  title: "Wind UI / Button Group",
+  title: "Components / Button Group",
   tags: ["autodocs"],
   render: ({
     numberOfButtons,
@@ -21,7 +21,7 @@ export default {
 
     // Generate buttons based on user inputs
     const buttons = Array.from({ length: numberOfButtons }).map((_, index) => {
-      return buttonRenderer({
+      return createButton({
         label: buttonLabels[index] || `Button ${index + 1}`,
         type: buttonTypes[index] || "primary",
         iconOnly: iconsOnly,

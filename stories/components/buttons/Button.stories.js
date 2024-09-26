@@ -1,10 +1,30 @@
-import { buttonRenderer } from "./Wind_ButtonRenderer"; // Import the render function
+import { createButton } from "./Button"; // Import the render function
 
 export default {
-  title: "Wind UI / Buttons",
+  title: "Components / Buttons",
   tags: ["autodocs"],
-  render: buttonRenderer, // Use the imported render function
+  render: createButton, // Use the imported render function
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "The button component is a versatile UI element that supports multiple types, sizes, and configurations. It can be rendered as a button, link, or input and allows for customization with icons, labels, full-width styles, and more.",
+      },
+    },
+  },
   argTypes: {
+    as: {
+      control: { type: "select" },
+      options: ["button", "input", "a"],
+      defaultValue: "button",
+      description: "Select the type of element.",
+    },
+    href: {
+      control: "text",
+      defaultValue: "Button",
+      description: "The URL if the button is rendered as a link.",
+      if: { arg: "as", eq: "a" },
+    },
     label: {
       control: "text",
       defaultValue: "Button",
@@ -30,25 +50,25 @@ export default {
     },
     size: {
       control: { type: "select" },
-      options: ["large", "medium", "small"],
+      options: ["small", "medium", "large"],
       defaultValue: "large",
       description:
-        "The size of the button, affecting its height, padding, and font size.",
+        "The size of the button (affects height, padding, and font).",
     },
     rounded: {
-      control: { type: "boolean" },
+      control: "boolean",
       defaultValue: false,
       description:
-        "Determines if the button should have fully rounded corners (rounded-full) or standard rounded corners.",
+        "Fully rounded corners (rounded-full) or standard rounded corners.",
     },
     outline: {
-      control: { type: "boolean" },
+      control: "boolean",
       defaultValue: false,
       description:
         "If true, the button will have an outline style with a transparent background.",
     },
     icon: {
-      control: { type: "boolean" },
+      control: "boolean",
       defaultValue: false,
       description: "If true, an icon will be displayed inside the button.",
     },
@@ -75,27 +95,29 @@ export default {
       options: ["left", "right"],
       defaultValue: "left",
       description:
-        "Determines the position of the icon relative to the button label (left or right).",
+        "Position of the icon relative to the button label (left or right).",
     },
     iconOnly: {
-      control: { type: "boolean" },
+      control: "boolean",
       defaultValue: false,
       description:
         "If true, the button will display only an icon with no text label.",
     },
     fullwidth: {
-      control: { type: "boolean" },
+      control: "boolean",
       defaultValue: false,
       description:
         "If true, the button will take up the full width of its container.",
     },
   },
   args: {
+    as: "button",
+    href: undefined,
     label: "Button",
     type: "primary",
-    size: "large",
-    rounded: false,
+    size: "medium",
     outline: false,
+    rounded: false,
     icon: false,
     iconName: "bi-star",
     iconPosition: "left",
@@ -105,217 +127,224 @@ export default {
 };
 
 // Button Variants
-export const PrimaryLarge = {
+export const PrimaryButtonLarge = {
   args: {
     type: "primary",
     size: "large",
   },
+  parameters: {
+    docs: {
+      description: {
+        story: "A large primary button for prominent actions.",
+      },
+    },
+  },
 };
 
-export const PrimaryMedium = {
+export const PrimaryButtonMedium = {
   args: {
     type: "primary",
     size: "medium",
   },
 };
 
-export const PrimarySmall = {
+export const PrimaryButtonSmall = {
   args: {
     type: "primary",
     size: "small",
   },
 };
 
-export const SecondaryLarge = {
+export const SecondaryButtonLarge = {
   args: {
     type: "secondary",
     size: "large",
   },
 };
 
-export const SecondaryMedium = {
+export const SecondaryButtonMedium = {
   args: {
     type: "secondary",
     size: "medium",
   },
 };
 
-export const SecondarySmall = {
+export const SecondaryButtonSmall = {
   args: {
     type: "secondary",
     size: "small",
   },
 };
 
-export const TertiaryLarge = {
+export const TertiaryButtonLarge = {
   args: {
     type: "tertiary",
     size: "large",
   },
 };
 
-export const TertiaryMedium = {
+export const TertiaryButtonMedium = {
   args: {
     type: "tertiary",
     size: "medium",
   },
 };
 
-export const TertiarySmall = {
+export const TertiaryButtonSmall = {
   args: {
     type: "tertiary",
     size: "small",
   },
 };
 
-export const DangerLarge = {
+export const DangerButtonLarge = {
   args: {
     type: "danger",
     size: "large",
   },
 };
 
-export const DangerMedium = {
+export const DangerButtonMedium = {
   args: {
     type: "danger",
     size: "medium",
   },
 };
 
-export const DangerSmall = {
+export const DangerButtonSmall = {
   args: {
     type: "danger",
     size: "small",
   },
 };
 
-export const SuccessLarge = {
+export const SuccessButtonLarge = {
   args: {
     type: "success",
     size: "large",
   },
 };
 
-export const SuccessMedium = {
+export const SuccessButtonMedium = {
   args: {
     type: "success",
     size: "medium",
   },
 };
 
-export const SuccessSmall = {
+export const SuccessButtonSmall = {
   args: {
     type: "success",
     size: "small",
   },
 };
 
-export const InfoLarge = {
+export const InfoButtonLarge = {
   args: {
     type: "info",
     size: "large",
   },
 };
 
-export const InfoMedium = {
+export const InfoButtonMedium = {
   args: {
     type: "info",
     size: "medium",
   },
 };
 
-export const InfoSmall = {
+export const InfoButtonSmall = {
   args: {
     type: "info",
     size: "small",
   },
 };
 
-export const WarningLarge = {
+export const WarningButtonLarge = {
   args: {
     type: "warning",
     size: "large",
   },
 };
 
-export const WarningMedium = {
+export const WarningButtonMedium = {
   args: {
     type: "warning",
     size: "medium",
   },
 };
 
-export const WarningSmall = {
+export const WarningButtonSmall = {
   args: {
     type: "warning",
     size: "small",
   },
 };
 
-export const LightLarge = {
+export const LightButtonLarge = {
   args: {
     type: "light",
     size: "large",
   },
 };
 
-export const LightMedium = {
+export const LightButtonMedium = {
   args: {
     type: "light",
     size: "medium",
   },
 };
 
-export const LightSmall = {
+export const LightButtonSmall = {
   args: {
     type: "light",
     size: "small",
   },
 };
 
-export const DarkLarge = {
+export const DarkButtonLarge = {
   args: {
     type: "dark",
     size: "large",
   },
 };
 
-export const DarkMedium = {
+export const DarkButtonMedium = {
   args: {
     type: "dark",
     size: "medium",
   },
 };
 
-export const DarkSmall = {
+export const DarkButtonSmall = {
   args: {
     type: "dark",
     size: "small",
   },
 };
 
-export const LinkLarge = {
+export const LinkButtonLarge = {
   args: {
     type: "link",
     size: "large",
   },
 };
 
-export const LinkMedium = {
+export const LinkButtonMedium = {
   args: {
     type: "link",
     size: "medium",
   },
 };
 
-export const LinkSmall = {
+export const LinkButtonSmall = {
   args: {
     type: "link",
     size: "small",
   },
 };
 
-export const PrimaryFullwidth = {
+export const FullwidthPrimaryButton = {
   args: {
     type: "primary",
     size: "large",
@@ -323,7 +352,7 @@ export const PrimaryFullwidth = {
   },
 };
 
-export const DangerFullwidth = {
+export const FullwidthDangerButton = {
   args: {
     type: "danger",
     size: "large",
@@ -331,7 +360,7 @@ export const DangerFullwidth = {
   },
 };
 
-export const SuccessIconOnly = {
+export const IconOnlySuccessButton = {
   args: {
     type: "success",
     size: "large",
@@ -341,7 +370,7 @@ export const SuccessIconOnly = {
   },
 };
 
-export const WarningOutline = {
+export const OutlineWarningButton = {
   args: {
     type: "warning",
     size: "large",
@@ -349,7 +378,7 @@ export const WarningOutline = {
   },
 };
 
-export const LightRounded = {
+export const RoundedLightButton = {
   args: {
     type: "light",
     size: "large",

@@ -4,7 +4,7 @@
 // and can be displayed with or without an icon.
 
 export default {
-  title: "Wind UI / Badge",
+  title: "Components / Badge",
   tags: ["autodocs"],
   render: ({ label, type, rounded, iconOnly }) => {
     // Define type-specific classes for different badge types

@@ -1,40 +1,40 @@
-import { create } from "@storybook/theming/create";
+import { create } from "@storybook/theming";
 
 export default create({
   base: "light",
   // Typography
-  //   fontBase: '"Open Sans", sans-serif',
+  fontBase: '"Roboto", sans-serif',
   fontCode: "monospace",
 
-  brandTitle: "My custom Storybook",
-  brandUrl: "https://example.com",
+  brandTitle: "Government Agency Storybook",
+  brandUrl: "https://example.gov",
   brandImage: "https://storybook.js.org/images/placeholders/350x150.png",
   brandTarget: "_self",
 
-  //
-  colorPrimary: "#585C6D",
-  colorSecondary: "#3A10E5",
+  // Colors
+  colorPrimary: "#00663D", // Primary color (Government green)
+  colorSecondary: "#002C5F", // Secondary color for contrast (Navy blue)
 
   // UI
-  appBg: "#ffffff",
-  appContentBg: "#ffffff",
-  appPreviewBg: "#ffffff",
-  appBorderColor: "#585C6D",
+  appBg: "#F5F5F5", // Light background to make content stand out
+  appContentBg: "#FFFFFF",
+  appPreviewBg: "#F5F5F5",
+  appBorderColor: "#D1D5DB", // Subtle border
   appBorderRadius: 4,
 
   // Text colors
-  textColor: "#10162F",
-  textInverseColor: "#ffffff",
+  textColor: "#10162F", // Dark text for clarity
+  textInverseColor: "#FFFFFF",
 
   // Toolbar default and active colors
-  barTextColor: "#9E9E9E",
-  barSelectedColor: "#585C6D",
-  barHoverColor: "#585C6D",
-  barBg: "#ffffff",
+  barTextColor: "#4F4F4F",
+  barSelectedColor: "#00663D", // Highlight with primary color
+  barHoverColor: "#004F2A", // Slightly darker green for hover state
+  barBg: "#FFFFFF",
 
   // Form colors
-  inputBg: "#ffffff",
-  inputBorder: "#10162F",
+  inputBg: "#FFFFFF",
+  inputBorder: "#00663D", // Primary color for form inputs
   inputTextColor: "#10162F",
-  inputBorderRadius: 2,
+  inputBorderRadius: 4,
 });

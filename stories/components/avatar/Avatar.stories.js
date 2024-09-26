@@ -1,9 +1,9 @@
-import { avatarRender } from "./Wind_AvatarRender";
+import { createAvatar } from "./Avatar";
 
 export default {
-  title: "Wind UI / Avatar",
+  title: "Components / Avatar",
   tags: ["autodocs"],
-  render: avatarRender,
+  render: createAvatar,
   argTypes: {
     type: {
       control: { type: "select" },

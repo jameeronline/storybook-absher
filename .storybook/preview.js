@@ -2,6 +2,7 @@
 
 //tailwind css
 import "../style/output.css";
+import "../style/custom-control.css";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
 
 //UI config
@@ -12,6 +13,15 @@ const preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
+      },
+    },
+    html: {
+      prettier: {
+        tabWidth: 2,
+        useTabs: false,
+        htmlWhitespaceSensitivity: "strict",
+        proseWrap: "always",
+        singleAttributePerLine: true,
       },
     },
   },

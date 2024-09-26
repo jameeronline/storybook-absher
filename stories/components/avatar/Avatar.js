@@ -1,4 +1,4 @@
-export const avatarRender = ({
+export const createAvatar = ({
   type,
   size,
   outline,

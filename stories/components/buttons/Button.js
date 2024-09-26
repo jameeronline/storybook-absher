@@ -1,4 +1,6 @@
-export const buttonRenderer = ({
+import { formatHtml } from "../../utilities/code-format";
+
+export const createButton = ({
   label,
   type,
   size,
@@ -9,6 +11,8 @@ export const buttonRenderer = ({
   iconPosition,
   iconOnly,
   fullwidth,
+  as, // new argument for the element type
+  href, // argument for link URL when as="a"
 }) => {
   const typeClasses = {
     primary: outline
@@ -51,12 +55,28 @@ export const buttonRenderer = ({
   const iconOnlyClass = iconOnly ? "p-0 w-12" : "";
   const fullwidthClass = fullwidth ? "w-full" : "";
 
-  return `
+  const content = formatHtml(`
+    ${icon && iconPosition === "left" && !iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
+    ${!iconOnly ? `<span>${label}</span>` : ""}
+    ${iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
+    ${icon && iconPosition === "right" && !iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
+  `);
+
+  if (as === "button") {
+    return formatHtml(`
       <button class="inline-flex items-center justify-center ${sizeClasses[size]} gap-2 font-medium tracking-wide transition duration-300 ${roundedClass} focus-visible:outline-none whitespace-nowrap ${typeClasses[type]} ${iconOnlyClass} ${fullwidthClass} disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:shadow-none">
-        ${icon && iconPosition === "left" && !iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
-        ${!iconOnly ? `<span>${label}</span>` : ""}
-        ${iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
-        ${icon && iconPosition === "right" && !iconOnly ? `<i class="bi ${iconName} text-2xl"></i> ` : ""}
+        ${content}
       </button>
-    `;
+    `);
+  } else if (as === "input") {
+    return formatHtml(`
+      <input type="button" value="${label}" class="inline-flex items-center justify-center ${sizeClasses[size]} gap-2 font-medium tracking-wide transition duration-300 ${roundedClass} focus-visible:outline-none whitespace-nowrap ${typeClasses[type]} ${iconOnlyClass} ${fullwidthClass} disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:shadow-none" />
+    `);
+  } else if (as === "a") {
+    return formatHtml(`
+      <a href="${href}" class="inline-flex items-center justify-center ${sizeClasses[size]} gap-2 font-medium tracking-wide transition duration-300 ${roundedClass} focus-visible:outline-none whitespace-nowrap ${typeClasses[type]} ${iconOnlyClass} ${fullwidthClass} disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:shadow-none">
+        ${content}
+      </a>
+    `);
+  }
 };
