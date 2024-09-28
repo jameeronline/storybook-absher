@@ -4,6 +4,8 @@
 import "../style/output.css";
 import "../style/custom-control.css";
 import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+import "../node_modules/@glidejs/glide/dist/css/glide.core.min.css";
+import "../node_modules/@glidejs/glide/dist/css/glide.theme.min.css";
 
 //UI config
 const preview = {
