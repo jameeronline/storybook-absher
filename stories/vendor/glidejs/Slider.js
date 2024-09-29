@@ -10,7 +10,7 @@ export const createSlider = ({ autoplay, animationDuration, items }) => {
 
   sliderContainer.innerHTML = `
     <div class="glide__track" data-glide-el="track">
-      <ul class="glide__slides">
+      <ul class="glide__slides w-full">
         ${items.map((item) => `<li class="glide__slide w-full">${item}</li>`).join("")}
       </ul>
     </div>
@@ -21,14 +21,16 @@ export const createSlider = ({ autoplay, animationDuration, items }) => {
   `;
 
   // Initialize Glide.js instance
-  const glide = new Glide(sliderContainer, {
-    type: "carousel",
-    autoplay: autoplayValue,
-    animationDuration,
-  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const glide = new Glide(sliderContainer, {
+      type: "carousel",
+      autoplay: autoplayValue,
+      animationDuration,
+    });
 
-  // Mount the slider
-  glide.mount();
+    // Mount the slider
+    glide.mount();
+  });
 
   return sliderContainer;
 };

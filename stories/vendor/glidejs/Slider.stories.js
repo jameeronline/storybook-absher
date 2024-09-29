@@ -46,8 +46,7 @@ export default {
 // Variants
 export const BasicSlider = {
   args: {
-    autoplay: true,
-    animationDuration: 1000,
+    autoplay: false,
   },
 };
 
