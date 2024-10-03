@@ -36,9 +36,25 @@ export default {
     autoplay: true,
     animationDuration: 3000,
     items: [
-      "Simply beautify will pretty print any HTML, CSS Javascript, or JSON and it works in both browser and Node.js environments!",
-      "Simply beautify will pretty print any HTML, CSS Javascript, or JSON and it works in both browser and Node.js environments!",
-      "Simply beautify will pretty print any HTML, CSS Javascript, or JSON and it works in both browser and Node.js environments!",
+      "<img src='https://picsum.photos/id/237/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/227/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/217/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/247/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/257/1000/300' alt='' />",
+    ],
+  },
+};
+
+export const Default = {
+  args: {
+    autoplay: true,
+    animationDuration: 3000,
+    items: [
+      "<img src='https://picsum.photos/id/237/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/227/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/217/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/247/1000/300' alt='' />",
+      "<img src='https://picsum.photos/id/257/1000/300' alt='' />",
     ],
   },
 };
@@ -47,6 +63,11 @@ export default {
 export const BasicSlider = {
   args: {
     autoplay: false,
+    items: [
+      "Simple image Slider: Glide.js is a dependency-free JavaScript ES6 slider and carousel. It’s lightweight, flexible and fast. Designed to slide. No less, no more",
+      "Simple image Slider: Glide.js is a dependency-free JavaScript ES6 slider and carousel. It’s lightweight, flexible and fast. Designed to slide. No less, no more",
+      "Simple image Slider: Glide.js is a dependency-free JavaScript ES6 slider and carousel. It’s lightweight, flexible and fast. Designed to slide. No less, no more",
+    ],
   },
 };
 

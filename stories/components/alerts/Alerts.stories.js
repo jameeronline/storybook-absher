@@ -19,7 +19,8 @@ export default {
     alertMessage: {
       control: "text",
       description: "Main content of the alert",
-      defaultValue: "This is a generic alert message.",
+      defaultValue:
+        "You successfully read this important alert message. Green often indicates something successful or positive.",
     },
     showLeadingIcon: {
       control: "boolean",
@@ -29,13 +30,13 @@ export default {
     leadingIcon: {
       control: "select",
       options: [
-        "x-circle-fill",
-        "check-circle-fill",
-        "info-circle-fill",
-        "exclamation-circle-fill",
+        "x-circle",
+        "check-circle",
+        "info-circle",
+        "exclamation-circle",
       ],
       description: "Icon of the alert",
-      defaultValue: "x-circle-fill",
+      defaultValue: "x-circle",
       if: { arg: "showLeadingIcon", truthy: true }, // Only show if leading icon is true
     },
     showDismissIcon: {
@@ -64,9 +65,10 @@ export default {
   args: {
     type: "danger",
     alertTitle: "",
-    alertMessage: "This is a default alert message.",
+    alertMessage:
+      "You successfully read this important alert message. Green often indicates something successful or positive.",
     showLeadingIcon: false,
-    leadingIcon: "x-circle-fill",
+    leadingIcon: "x-circle",
     showDismissIcon: false,
     showActionButtons: false,
     primaryButtonLabel: "Proceed",
@@ -86,7 +88,7 @@ export const DangerAlertWithIconAndButtons = {
     type: "danger",
     alertTitle: "Danger Alert",
     showLeadingIcon: true,
-    leadingIcon: "x-circle-fill",
+    leadingIcon: "x-circle",
     showActionButtons: true,
   },
 };

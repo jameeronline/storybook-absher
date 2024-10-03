@@ -113,7 +113,7 @@ export const createCard = ({
 
   // Return the full card structure
   return `
-      <div class="overflow-hidden rounded shadow-md ${cardTypeClasses[type]} ${layoutClasses}">
+      <div class="overflow-hidden rounded shadow-md max-w-sm ${cardTypeClasses[type]} ${layoutClasses}">
         ${cardContent}
       </div>`;
 };

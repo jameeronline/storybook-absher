@@ -1,5 +1,3 @@
-import { formatHtml } from "../../utilities/code-format";
-
 export const createButton = ({
   label,
   type,
@@ -55,28 +53,28 @@ export const createButton = ({
   const iconOnlyClass = iconOnly ? "p-0 w-12" : "";
   const fullwidthClass = fullwidth ? "w-full" : "";
 
-  const content = formatHtml(`
+  const content = `
     ${icon && iconPosition === "left" && !iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
     ${!iconOnly ? `<span>${label}</span>` : ""}
     ${iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
     ${icon && iconPosition === "right" && !iconOnly ? `<i class="bi ${iconName} text-2xl"></i>` : ""}
-  `);
+  `;
 
   if (as === "button") {
-    return formatHtml(`
+    return `
       <button class="inline-flex items-center justify-center ${sizeClasses[size]} gap-2 font-medium tracking-wide transition duration-300 ${roundedClass} focus-visible:outline-none whitespace-nowrap ${typeClasses[type]} ${iconOnlyClass} ${fullwidthClass} disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:shadow-none">
         ${content}
       </button>
-    `);
+    `;
   } else if (as === "input") {
-    return formatHtml(`
+    return `
       <input type="button" value="${label}" class="inline-flex items-center justify-center ${sizeClasses[size]} gap-2 font-medium tracking-wide transition duration-300 ${roundedClass} focus-visible:outline-none whitespace-nowrap ${typeClasses[type]} ${iconOnlyClass} ${fullwidthClass} disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:shadow-none" />
-    `);
+    `;
   } else if (as === "a") {
-    return formatHtml(`
+    return `
       <a href="${href}" class="inline-flex items-center justify-center ${sizeClasses[size]} gap-2 font-medium tracking-wide transition duration-300 ${roundedClass} focus-visible:outline-none whitespace-nowrap ${typeClasses[type]} ${iconOnlyClass} ${fullwidthClass} disabled:cursor-not-allowed disabled:border-gray-300 disabled:bg-gray-300 disabled:shadow-none">
         ${content}
       </a>
-    `);
+    `;
   }
 };

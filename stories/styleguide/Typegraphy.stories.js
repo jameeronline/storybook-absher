@@ -1,26 +1,48 @@
 export default {
   title: "Styleguide/Typography",
   tags: ["autodocs"],
-  render: ({ label, type, fontWeight, color = "red", tag }) => {
+  render: ({ label, type, fontWeight, color, as, customColor }) => {
     const fontType = {
-      "Display 1": "text-6xl",
-      "Display 2": "text-5xl",
-      "Display 3": "text-4xl",
-      "Display 4": "text-3xl",
-      "Display 5": "text-2xl",
-      "Heading 1": "text-xl",
-      "Heading 2": "text-lg",
-      "Heading 3": "text-md",
-      "Heading 4": "text-sm",
-      "Heading 5": "text-xs",
-      "Heading 6": "text-xxs",
-      "Body Text - Medium": "text-base",
-      "Body Text - Large": "text-xl",
-      "Body Text - Regular": "text-lg",
-      "Body Text - Small": "text-md",
-      "Body Text - Extra Small": "text-sm",
+      "Display 1": "text-9xl",
+      "Display 2": "text-8xl",
+      "Display 3": "text-7xl",
+      "Display 4": "text-6xl",
+      "Display 5": "text-5xl",
+      "Heading 1": "text-4xl",
+      "Heading 2": "text-3xl",
+      "Heading 3": "text-2xl",
+      "Heading 4": "text-xl",
+      "Heading 5": "text-lg",
+      "Heading 6": "text-base",
+      "Body Text - Large": "text-lg",
+      "Body Text - Regular": "text-base",
+      "Body Text - Medium": "text-md",
+      "Body Text - Small": "text-sm",
+      "Body Text - Extra Small": "text-xs",
     };
-    return `<${tag} class="${fontType[type]} ${fontWeight} text-[${color}]">${label}</${tag}>`;
+
+    const fontColor = {
+      primary: "text-primary-500",
+      secondary: "text-secondary-500",
+      danger: "text-danger-500",
+      success: "text-success-500",
+      warning: "text-warning-500",
+      info: "text-info-500",
+    };
+
+    // Assign the appropriate HTML tag based on the type
+    if (type.startsWith("Display")) {
+      as = "h1";
+    } else if (type.startsWith("Heading")) {
+      as = `h${type.split(" ")[1]}`;
+    } else {
+      as = "p";
+    }
+
+    //text custom color
+    const textColor = `text-[${customColor}]`;
+
+    return `<${as} class="${fontType[type]} ${fontWeight} ${textColor}">${label}</${as}>`;
   },
   argTypes: {
     type: {
@@ -37,8 +59,8 @@ export default {
         "Heading 4",
         "Heading 5",
         "Heading 6",
-        "Body Text - Medium",
         "Body Text - Large",
+        "Body Text - Medium",
         "Body Text - Regular",
         "Body Text - Small",
         "Body Text - Extra Small",
@@ -72,17 +94,22 @@ export default {
       },
     },
     color: {
-      control: {
-        type: "color",
-      },
-      description: "Select the color of the text.",
+      control: { type: "select" },
+      options: ["primary", "secondary", "danger", "warning", "info", "success"],
+      description: "Select the color variant for the text.",
       table: {
-        defaultValue: { summary: "#0657AB" },
+        defaultValue: { summary: "text-primary" },
       },
     },
-    tag: {
+    customColor: {
+      control: "color",
+      table: {
+        defaultValue: { summary: "#003b20" },
+      },
+    },
+    as: {
       control: { type: "select" },
-      options: ["h1", "h2", "h3", "h4", "h5", "h6", "div", "p"],
+      options: ["h1", "h2", "h3", "h4", "h5", "h6", "p"],
       description: "HTML tag used for the text element.",
       table: {
         defaultValue: { summary: "h1" },
@@ -93,8 +120,8 @@ export default {
     type: "Display 1",
     fontWeight: "font-normal",
     label: "Heading",
-    color: "text-black",
-    tag: "h1",
+    color: "text-primary",
+    as: "h1",
   },
 };
 
@@ -180,7 +207,7 @@ export const BodyTextMedium = {
   args: {
     type: "Body Text - Medium",
     label: "Body Text - Medium",
-    tag: "p",
+    as: "p",
   },
 };
 
@@ -188,7 +215,7 @@ export const BodyTextLarge = {
   args: {
     type: "Body Text - Large",
     label: "Body Text - Large",
-    tag: "p",
+    as: "p",
   },
 };
 
@@ -196,7 +223,7 @@ export const BodyTextRegular = {
   args: {
     type: "Body Text - Regular",
     label: "Body Text - Regular",
-    tag: "p",
+    as: "p",
   },
 };
 
@@ -204,7 +231,7 @@ export const BodyTextSmall = {
   args: {
     type: "Body Text - Small",
     label: "Body Text - Small",
-    tag: "p",
+    as: "p",
   },
 };
 
@@ -212,39 +239,6 @@ export const BodyTextExtraSmall = {
   args: {
     type: "Body Text - Extra Small",
     label: "Body Text - Extra Small",
-    tag: "p",
+    as: "p",
   },
 };
-
-// Combined Variants
-
-// export const AllDisplayVariants = () => `
-//   <div>
-//     <h1 class="text-6xl font-bold text-black">Display Heading 1</h1>
-//     <h2 class="text-5xl font-bold text-black">Display Heading 2</h2>
-//     <h3 class="text-4xl font-bold text-black">Display Heading 3</h3>
-//     <h4 class="text-3xl font-bold text-black">Display Heading 4</h4>
-//     <h5 class="text-2xl font-bold text-black">Display Heading 5</h5>
-//   </div>
-// `;
-
-// export const AllHeadingVariants = () => `
-//   <div>
-//     <h1 class="text-xl font-bold text-black">Heading 1</h1>
-//     <h2 class="text-lg font-bold text-black">Heading 2</h2>
-//     <h3 class="text-md font-bold text-black">Heading 3</h3>
-//     <h4 class="text-sm font-bold text-black">Heading 4</h4>
-//     <h5 class="text-xs font-bold text-black">Heading 5</h5>
-//     <h6 class="text-xxs font-bold text-black">Heading 6</h6>
-//   </div>
-// `;
-
-// export const AllBodyTextVariants = () => `
-//   <div>
-//     <p class="text-base font-normal text-black">Body Text - Medium</p>
-//     <p class="text-xl font-normal text-black">Body Text - Large</p>
-//     <p class="text-lg font-normal text-black">Body Text - Regular</p>
-//     <p class="text-md font-normal text-black">Body Text - Small</p>
-//     <p class="text-sm font-normal text-black">Body Text - Extra Small</p>
-//   </div>
-// `;

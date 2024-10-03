@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { createButton } from "../buttons/Button";
+import { formatHtml } from "../../utilities/code-format";
 
 export const createAlert = ({
   alertTitle,
@@ -20,7 +21,7 @@ export const createAlert = ({
     dark: "border-gray-100 bg-gray-50 text-gray-500",
   };
 
-  return `
+  return formatHtml(`
     <div class="flex flex-col w-full text-sm px-4 py-3 border rounded ${typeClasses[type]}" role="alert">
       <div class="flex items-center gap-4 ${clsx(alertTitle && "mb-1")}">
         ${showLeadingIcon ? `<i class="bi bi-${leadingIcon} text-2xl"></i>` : ""}
@@ -57,5 +58,5 @@ export const createAlert = ({
           : ""
       }
     </div>
-  `;
+  `);
 };

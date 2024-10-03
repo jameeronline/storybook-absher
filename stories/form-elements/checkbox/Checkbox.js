@@ -17,7 +17,7 @@ export const createCheckbox = ({
       return `
         <div class="relative flex items-start mt-2">
           <input 
-            class="w-6 h-6 flex-shrink-0 transition-colors bg-white border-2 rounded appearance-none cursor-pointer focus-visible:outline-none peer border-slate-500 checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 focus:outline-none checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:cursor-not-allowed disabled:border-slate-100 disabled:bg-slate-50" 
+            class="w-6 h-6 flex-shrink-0 transition-colors bg-white border-2 rounded appearance-none cursor-pointer focus-visible:outline-none peer border-slate-500 checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 focus:outline-none checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:cursor-not-allowed disabled:border-slate-100 disabled:bg-slate-50 dark:border-danger-500" 
             type="checkbox" id="${id}" />
           
           <label 

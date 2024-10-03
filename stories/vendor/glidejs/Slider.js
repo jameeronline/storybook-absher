@@ -26,6 +26,7 @@ export const createSlider = ({ autoplay, animationDuration, items }) => {
       type: "carousel",
       autoplay: autoplayValue,
       animationDuration,
+      //perView: 3,
     });
 
     // Mount the slider

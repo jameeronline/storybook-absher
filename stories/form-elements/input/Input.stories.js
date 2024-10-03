@@ -10,42 +10,51 @@ export default {
       control: { type: "select" },
       options: ["text", "password", "number", "date", "email"],
       description: "The type of input field",
+      defaultValue: "text", // Default value set to "text"
     },
     size: {
       control: { type: "select" },
       options: ["small", "default", "large"],
       description: "The size of the input",
+      defaultValue: "default", // Default value set to "default"
     },
     isLabel: {
       control: { type: "boolean" },
       description: "Toggle the visibility of the label",
+      defaultValue: false, // Default value set to false
     },
     label: {
       control: { type: "text" },
       description: "The text for the label",
-      if: { arg: "isLabel", truthy: true },
+      defaultValue: "Your Name", // Default label text
+      if: { arg: "isLabel", truthy: true }, // Visible only if `isLabel` is true
     },
     placeholder: {
       control: { type: "boolean" },
       description: "Toggle the visibility of the placeholder",
+      defaultValue: true, // Default value set to true
     },
     placeholderText: {
       control: { type: "text" },
       description: "The text for the placeholder",
-      if: { arg: "placeholder", truthy: true },
+      defaultValue: "Enter your name", // Default placeholder text
+      if: { arg: "placeholder", truthy: true }, // Visible only if `placeholder` is true
     },
     helperText: {
       control: { type: "boolean" },
       description: "Toggle the visibility of the helper text",
+      defaultValue: false, // Default value set to false
     },
     helperLabel: {
       control: { type: "text" },
       description: "The text for the helper label",
-      if: { arg: "helperText", truthy: true },
+      defaultValue: "Text field with helper text", // Default helper text
+      if: { arg: "helperText", truthy: true }, // Visible only if `helperText` is true
     },
     isLeadIcon: {
       control: { type: "boolean" },
       description: "Toggle the visibility of the leading icon",
+      defaultValue: false, // Default value set to false
     },
     leadingIcon: {
       control: { type: "select" },
@@ -58,11 +67,12 @@ export default {
         "credit-card",
       ],
       description: "Select the leading icon for the input field",
-      if: { arg: "isLeadIcon", truthy: true },
+      if: { arg: "isLeadIcon", truthy: true }, // Visible only if `isLeadIcon` is true
     },
     isTrailIcon: {
       control: { type: "boolean" },
       description: "Toggle the visibility of the trailing icon",
+      defaultValue: false, // Default value set to false
     },
     trailingIcon: {
       control: { type: "select" },
@@ -75,13 +85,13 @@ export default {
         "credit-card",
       ],
       description: "Select the trailing icon for the input field",
-      if: { arg: "isTrailIcon", truthy: true },
+      if: { arg: "isTrailIcon", truthy: true }, // Visible only if `isTrailIcon` is true
     },
   },
   args: {
     as: "text",
     size: "default",
-    isLabel: true,
+    isLabel: false,
     label: "Your Name",
     placeholder: true,
     placeholderText: "Enter your name",
@@ -95,24 +105,20 @@ export default {
 // Variants with user-friendly names
 
 export const DefaultTextInput = {
-  name: "Default Text Input",
+  name: "Text Input",
   args: {
     as: "text",
-    size: "default",
-    label: "Your Name",
   },
 };
 
-export const LargeInputWithUserIcon = {
-  name: "Large Input with Leading User Icon",
+export const DefaultInputWithUserIcon = {
+  name: "Input with Leading User Icon",
   args: {
     as: "text",
-    size: "large",
     isLabel: true,
     label: "Username",
     isLeadIcon: true,
     leadingIcon: "person",
-    isTrailIcon: false,
   },
 };
 
@@ -170,7 +176,7 @@ export const PhoneNumberInputWithIcons = {
 };
 
 export const DefaultTextInputWithSearch = {
-  name: "Default Text Input",
+  name: "Default Text Input With Search",
   args: {
     as: "text",
     size: "default",

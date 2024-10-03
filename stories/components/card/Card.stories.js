@@ -4,16 +4,16 @@ export default {
   title: "Components / Card",
   tags: ["autodocs"],
   render: createCard,
-  decorators: [
-    (Story) => {
-      const wrapper = document.createElement("div");
-      wrapper.classList.add("max-w-sm");
-      //wrapper.style.maxWidth = "600px";
-      //wrapper.style.margin = "0 auto";
-      wrapper.innerHTML = Story();
-      return wrapper;
-    },
-  ],
+  // decorators: [
+  //   (Story) => {
+  //     const wrapper = document.createElement("div");
+  //     wrapper.classList.add("max-w-sm");
+  //     //wrapper.style.maxWidth = "600px";
+  //     //wrapper.style.margin = "0 auto";
+  //     wrapper.innerHTML = Story();
+  //     return wrapper;
+  //   },
+  // ],
   parameters: {
     layout: "centered",
     docs: {
