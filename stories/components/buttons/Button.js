@@ -1,16 +1,16 @@
 export const createButton = ({
-  label,
-  type,
-  size,
-  rounded,
-  outline,
-  icon,
-  iconName,
-  iconPosition,
-  iconOnly,
-  fullwidth,
-  as, // new argument for the element type
-  href, // argument for link URL when as="a"
+  label = "Button", // Default label for the button
+  type = "primary", // Default type (primary button)
+  size = "medium", // Default size is medium
+  rounded = false, // Default is not rounded
+  outline = false, // Default is not outlined
+  icon = false, // Default no icon
+  iconName = "", // Default icon name is empty (no icon)
+  iconPosition = "left", // Default icon position is left
+  iconOnly = false, // Default is not icon-only
+  fullwidth = false, // Default is not full-width
+  as = "button", // Default element type is button
+  href = "#", // Default href for anchor tag
 }) => {
   const typeClasses = {
     primary: outline
@@ -44,7 +44,7 @@ export const createButton = ({
   };
 
   const sizeClasses = {
-    large: "h-12 px-6 text-sm",
+    large: "h-12 px-8 text-md",
     medium: "h-10 px-4 text-sm",
     small: "h-8 px-3 text-xs",
   };

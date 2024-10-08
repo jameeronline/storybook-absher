@@ -11,6 +11,13 @@ export default {
           "The button component is a versatile UI element that supports multiple types, sizes, and configurations. It can be rendered as a button, link, or input and allows for customization with icons, labels, full-width styles, and more.",
       },
     },
+    backgrounds: {
+      default: "light", // Default background color
+      values: [
+        { name: "light", value: "#ffffff" },
+        { name: "dark", value: "#000000" },
+      ],
+    },
   },
   argTypes: {
     as: {

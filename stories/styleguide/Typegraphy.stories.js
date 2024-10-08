@@ -129,35 +129,35 @@ export default {
 export const Display1 = {
   args: {
     type: "Display 1",
-    label: "Display Heading 1",
+    label: "Display 1",
   },
 };
 
 export const Display2 = {
   args: {
     type: "Display 2",
-    label: "Display Heading 2",
+    label: "Display 2",
   },
 };
 
 export const Display3 = {
   args: {
     type: "Display 3",
-    label: "Display Heading 3",
+    label: "Display 3",
   },
 };
 
 export const Display4 = {
   args: {
     type: "Display 4",
-    label: "Display Heading 4",
+    label: "Display 4",
   },
 };
 
 export const Display5 = {
   args: {
     type: "Display 5",
-    label: "Display Heading 5",
+    label: "Display 5",
   },
 };
 

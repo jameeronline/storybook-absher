@@ -13,6 +13,7 @@ const config = {
     "@storybook/addon-themes",
     "storybook-addon-rtl",
     "storybook-dark-mode",
+    "@storybook/addon-docs",
   ],
   framework: {
     name: "@storybook/html-vite",
