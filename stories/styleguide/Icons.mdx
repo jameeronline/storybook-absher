@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+import { Meta, Unstyled } from '@storybook/blocks';
+import { ToastContainer, toast } from 'react-toastify';
+
+import { bootstrapIcons } from './data'; // Ensure this path is correct
+
+<Meta title="StyleGuide / Icon Library" />
+
+export const IconGrid = ({ icons }) => {
+    const [searchTerm, setSearchTerm] = useState('');
+
+    // Handle search input change
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value.toLowerCase());
+    };
+
+    // Filter icons based on the search term
+    const filteredIcons = icons.filter((icon) =>
+        icon.toLowerCase().includes(searchTerm)
+    );
+
+    // Handle icon click and copy to clipboard
+    const handleIconClick = (icon) => {
+        const iconClass = `<i class="bi ${icon} text-2xl"></i>`;
+        navigator.clipboard.writeText(iconClass).then(() => {
+            toast(`Copied ${iconClass} to clipboard!`);
+        });
+    };
+
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="Search icons..."
+                className="border p-2 w-full mb-0"
+                value={searchTerm}
+                onChange={handleSearch}
+            />
+            <p className='text-sm text-slate-400'>Use the search below to quickly find the icon you need from the list of Icons.</p>
+            <div id="icon-grid" className="flex flex-wrap gap-6 mt-10">
+                {filteredIcons.map((icon) => (
+                    <div
+                        key={icon}
+                        className="icon-item w-36 h-20 flex-shrink-0 flex flex-col justify-center items-center cursor-pointer bg-slate-50 pt-4"
+                        onClick={() => handleIconClick(icon)}
+                    >
+                        <i className={`bi ${icon} text-3xl`}></i>
+                        <p className="text-xs">{icon}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+<Unstyled>
+<article className="prose max-w-none">
+
+# Icons
+
+Icons are used across UI components to provide visual feedback and interactivity. This section documents how to use Icons within your project and provides examples of styling them using Tailwind CSS.
+
+<IconGrid icons={bootstrapIcons} />  {/* Pass the icons array as a prop */}
+
+## Usage
+
+### 1. Basic Usage
+You can use the icon in your HTML by including the Icon class directly.
+
+### Explanation of Features
+
+1. **Icon Grid with Preview & Name**:  
+   Each icon is represented in a grid layout with the icon preview, name, and a button to copy the icon name.
+
+2. **Search Functionality**:  
+   A search input allows users to filter the icon list by typing the icon's name. The `searchIcons` JavaScript function matches the search term with the icon's name.
+
+3. **Usage Section**:  
+   Detailed description of how to use Icons, including using Tailwind CSS classes to change color, size, and apply transformations.
+
+4. **Copy Icon Name**:  
+   A `Copy` button next to each icon allows users to copy the icon class name to the clipboard.
+
+### Notes:
+
+- **Dynamic Grid**: You can add more icons in the `<div class="icon-item">` structure to cover all the icons you want.
+- **Custom Styles**: The example includes a reference to an external CSS file (`icon-styles.css`). You can style the grid, buttons, or inputs as needed.
+
+</article>
+
+<ToastContainer 
+  position="bottom-right"
+  autoClose={2000}
+  hideProgressBar={true}
+  theme="dark"
+/>
+
+</Unstyled>

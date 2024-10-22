@@ -1,3 +1,8 @@
+import { createButton } from "../button/Button";
+import { createButtonTv } from "../../test/button/buttonTv";
+
+//console.log(createButtonTv());
+
 export const createCard = ({
   title,
   subtitle,
@@ -9,6 +14,15 @@ export const createCard = ({
   horizontal,
   type,
 }) => {
+  // console.log(
+  //   createButton({
+  //     as: "button",
+  //     label: primaryButtonLabel,
+  //     type: type,
+  //     size: "small",
+  //   }),
+  // );
+
   const cardTypeClasses = {
     basic: "bg-white text-slate-500",
     eCommerce: "bg-white text-slate-500",
@@ -113,7 +127,7 @@ export const createCard = ({
 
   // Return the full card structure
   return `
-      <div class="overflow-hidden rounded shadow-md max-w-sm ${cardTypeClasses[type]} ${layoutClasses}">
+      <div class="overflow-hidden rounded shadow-md ${cardTypeClasses[type]} ${layoutClasses}">
         ${cardContent}
       </div>`;
 };

@@ -15,6 +15,11 @@ export default {
 
     return container;
   },
+  parameters: {
+    docs: {
+      source: {},
+    },
+  },
   argTypes: {
     autoplay: {
       control: { type: "boolean" },

@@ -1,3 +1,4 @@
+import { tv } from "tailwind-variants";
 export const createInput = ({
   as = "text",
   size = "default",
@@ -13,66 +14,97 @@ export const createInput = ({
   trailingIcon = null,
 }) => {
   // Determine size classes for the input
-  const sizeClasses = {
-    small: {
-      inputHeight: "h-10",
-      iconSize: "text-base", // Adjust icon size for small input
-      textSize: "text-sm", // Small text for label/input/placeholder
-      labelSize: "text-xs",
+  const inputClassNames = tv({
+    slots: {
+      base: "relative",
+      form_group: "relative mt-2 mb-4",
+      input:
+        "relative w-full px-4 transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-danger-500 invalid:text-danger-500 focus:border-primary-500 focus:outline-none invalid:focus:border-danger-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400",
+      leadingIcon_slot:
+        "absolute w-6 h-6 cursor-pointer top-3 left-4 text-slate-400",
+      trailingIcon_slot:
+        "absolute w-6 h-6 cursor-pointer top-3 right-2 text-slate-400",
+      label_slot:
+        "cursor-text peer-focus:cursor-default px-4 text-slate-600 transition-all peer-required:after:text-danger-500 peer-required:after:content-['\\00a0*'] peer-invalid:text-danger-500 peer-focus:-top-2 peer-focus:left-2 peer-focus:text-xs peer-focus:text-primary-500 peer-invalid:peer-focus:text-danger-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent",
+      helptext_slot:
+        "flex justify-between w-full px-4 mt-2 text-xs transition text-slate-400 peer-invalid:text-danger-500",
     },
-    default: {
-      inputHeight: "h-12",
-      iconSize: "text-lg", // Default icon size
-      textSize: "text-base", // Default text size for label/input/placeholder
-      labelSize: "text-sm",
+    variants: {
+      size: {
+        small: {
+          label_slot: "text-xs",
+          input: "h-12",
+          leadingIcon_slot: "text-xl w-6 h-6",
+          trailingIcon_slot: "text-xl w-6 h-6",
+        },
+        default: {
+          label_slot: "text-sm",
+          input: "h-14",
+          leadingIcon_slot: "text-2xl w-6 h-6 left-4",
+          trailingIcon_slot: "text-2xl w-6 h-6 right-4",
+        },
+        large: {
+          label_slot: "text-base",
+          input: "h-16",
+          leadingIcon_slot: "text-2xl w-8 h-8 top-4",
+          trailingIcon_slot: "text-2xl w-8 h-8 top-4",
+        },
+      },
     },
-    large: {
-      inputHeight: "h-16",
-      iconSize: "text-2xl", // Larger icon size
-      textSize: "text-lg", // Larger text for label/input/placeholder
-      labelSize: "text-base",
-    },
-  };
+    compoundVariants: [
+      {
+        isLeadIcon: true,
+        class: {
+          input: "ps-12",
+        },
+      },
+    ],
+  });
 
-  const inputSizeClass = sizeClasses[size].inputHeight;
-  const iconSizeClass = sizeClasses[size].iconSize;
-  const textSizeClass = sizeClasses[size].textSize;
-  const labelSizeClass = sizeClasses[size].labelSize;
+  const {
+    base,
+    form_group,
+    label_slot,
+    input,
+    leadingIcon_slot,
+    trailingIcon_slot,
+    helptext_slot,
+  } = inputClassNames({
+    size: size,
+    isLeadIcon: isLeadIcon,
+    isTrailIcon: isTrailIcon,
+  });
 
   // Icons rendering with dynamic size
-  const leadIconMarkup =
-    isLeadIcon && leadingIcon
-      ? `<span class="absolute w-6 h-6 cursor-pointer top-3 left-4 ${iconSizeClass} text-slate-400"><i class="bi bi-${leadingIcon}"></i></span>`
-      : "";
-
-  const trailIconMarkup =
-    isTrailIcon && trailingIcon
-      ? `<span class="absolute w-6 h-6 cursor-pointer top-3 right-4 ${iconSizeClass} text-slate-400"><i class="bi bi-${trailingIcon}"></i></span>`
-      : "";
-
-  // Label rendering with dynamic text size
-  const labelMarkup = isLabel
-    ? `
-    <label for="input-field" class="cursor-text peer-focus:cursor-default z-[1] px-2 ${labelSizeClass} text-slate-600 transition-all peer-required:after:text-danger-500 peer-required:after:content-['\\00a0*'] peer-invalid:text-danger-500 peer-focus:-top-2 peer-focus:left-2 peer-focus:text-xs peer-focus:text-primary-500 peer-invalid:peer-focus:text-danger-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
-      ${label}
-    </label>`
+  const leadIconMarkup = isLeadIcon
+    ? `<span class="${leadingIcon_slot()}"><i class="bi bi-${leadingIcon}"></i></span>`
     : "";
 
-  // Helper text rendering
+  const trailIconMarkup = isTrailIcon
+    ? `<span class="${trailingIcon_slot()}"><i class="bi bi-${trailingIcon}"></i></span>`
+    : "";
+
+  // Label
+  const labelMarkup = isLabel
+    ? `
+    <label for="input-field" class="${label_slot()}">${label}</label>`
+    : "";
+
+  // Helper text
   const helperTextMarkup = helperText
     ? `
-    <small class="flex justify-between w-full px-4 py-1 text-xs transition text-slate-400 peer-invalid:text-danger-500">
-      <span>${helperLabel}</span>
-    </small>`
+    <small class="${helptext_slot()}"><span>${helperLabel}</span></small>`
     : "";
 
   return `
-    ${labelMarkup}
-    <div class="relative mt-1 mb-6">
-      <input id="input-field" type="${as}" placeholder="${placeholderText}" class="relative w-full ${inputSizeClass} px-4 ${isLeadIcon ? "pl-12" : ""} ${isTrailIcon ? "pr-12" : ""} transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 ${textSizeClass} text-slate-500 autofill:bg-white invalid:border-danger-500 invalid:text-danger-500 focus:border-primary-500 focus:outline-none invalid:focus:border-danger-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400" />
-      ${leadIconMarkup}
-      ${trailIconMarkup}
-      ${helperTextMarkup}
+    <div class=${base()} data-name="form-group">
+      ${labelMarkup}
+      <div class="${form_group()}">
+        <input id="input-field" type="${as}" placeholder="${placeholder ? placeholderText : ``}" class="${input()}" />
+        ${leadIconMarkup}
+        ${trailIconMarkup}
+        ${helperTextMarkup}
+      </div>
     </div>
   `;
 };

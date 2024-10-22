@@ -12,7 +12,7 @@ const config = {
     "@whitespace/storybook-addon-html",
     "@storybook/addon-themes",
     "storybook-addon-rtl",
-    "storybook-dark-mode",
+    //"storybook-dark-mode",
     "@storybook/addon-docs",
   ],
   framework: {

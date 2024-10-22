@@ -1,0 +1,29 @@
+/* Style the control panel area */
+.sidebar-container,
+.os-content-glue {
+  background-color: #f5f5f5; /* Light background */
+}
+
+/* Style input elements inside controls */
+.addon-controls input,
+.addon-controls select,
+.addon-controls textarea {
+  background-color: #ffffff; /* White input background */
+  border: 1px solid #00663d; /* Primary color border */
+  border-radius: 4px;
+  color: #10162f; /* Dark text for clarity */
+}
+
+/* Style buttons inside controls */
+.addon-controls button {
+  background-color: #00663d; /* Primary color for buttons */
+  color: white;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.addon-controls button:hover {
+  background-color: #004f2a; /* Darker green on hover */
+}

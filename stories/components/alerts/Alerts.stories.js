@@ -1,4 +1,5 @@
 import { createAlert } from "./Alert";
+import { semanticTypeVarients } from "../../utilities/config";
 
 export default {
   title: "Components/Alerts",
@@ -7,44 +8,32 @@ export default {
   argTypes: {
     type: {
       control: "select",
-      options: ["danger", "success", "info", "warning", "dark"],
+      options: semanticTypeVarients,
       description: "Type of alert",
       defaultValue: "success",
     },
-    alertTitle: {
+    title: {
       control: "text",
       description: "Title of the alert",
       defaultValue: "Alert Title",
     },
-    alertMessage: {
+    message: {
       control: "text",
       description: "Main content of the alert",
       defaultValue:
         "You successfully read this important alert message. Green often indicates something successful or positive.",
     },
-    showLeadingIcon: {
+    leadingIcon: {
       control: "boolean",
       description: "Display the leading icon",
       defaultValue: false,
     },
-    leadingIcon: {
-      control: "select",
-      options: [
-        "x-circle",
-        "check-circle",
-        "info-circle",
-        "exclamation-circle",
-      ],
-      description: "Icon of the alert",
-      defaultValue: "x-circle",
-      if: { arg: "showLeadingIcon", truthy: true }, // Only show if leading icon is true
-    },
-    showDismissIcon: {
+    dismissIcon: {
       control: "boolean",
       description: "Display the dismiss icon",
       defaultValue: false,
     },
-    showActionButtons: {
+    actionButtons: {
       control: "boolean",
       description: "Display action buttons",
       defaultValue: false,
@@ -53,66 +42,67 @@ export default {
       control: "text",
       description: "Label for the primary action button",
       defaultValue: "Proceed",
-      if: { arg: "showActionButtons", truthy: true }, // Only show if action buttons are true
+      if: { arg: "actionButtons", truthy: true }, // Only show if action buttons are true
     },
     linkButtonLabel: {
       control: "text",
       description: "Label for the link action button",
       defaultValue: "Cancel",
-      if: { arg: "showActionButtons", truthy: true }, // Only show if action buttons are true
+      if: { arg: "actionButtons", truthy: true }, // Only show if action buttons are true
     },
   },
   args: {
     type: "danger",
-    alertTitle: "",
-    alertMessage:
-      "You successfully read this important alert message. Green often indicates something successful or positive.",
-    showLeadingIcon: false,
-    leadingIcon: "x-circle",
-    showDismissIcon: false,
-    showActionButtons: false,
+    title: "",
+    message:
+      "An error occurred. Please try again or contact support if the problem persists.",
+    leadingIcon: false,
+    dismissIcon: false,
+    actionButtons: false,
     primaryButtonLabel: "Proceed",
     linkButtonLabel: "Cancel",
   },
 };
 
 // Variants
+export const DangerAlert = {
+  args: {
+    type: "danger",
+  },
+};
+
 export const SuccessAlert = {
   args: {
     type: "success",
-  },
-};
-
-export const DangerAlertWithIconAndButtons = {
-  args: {
-    type: "danger",
-    alertTitle: "Danger Alert",
-    showLeadingIcon: true,
-    leadingIcon: "x-circle",
-    showActionButtons: true,
-  },
-};
-
-export const WarningAlertWithDismissal = {
-  args: {
-    type: "warning",
-    showDismissIcon: true,
+    leadingIcon: true,
+    message: "Operation completed successfully. Your changes have been saved.",
   },
 };
 
 export const InfoAlert = {
   args: {
     type: "info",
-    alertMessage: "This is an info alert.",
+    message:
+      "Please be aware of upcoming maintenance scheduled for this weekend.",
+    dismissIcon: true,
   },
 };
 
-export const DarkAlertWithCustomContent = {
+export const WarningAlertWithDismissal = {
   args: {
-    type: "dark",
-    alertTitle: "Dark Mode Alert",
-    alertMessage: "This is a custom message in dark mode.",
-    showActionButtons: true,
-    primaryButtonLabel: "Acknowledge",
+    type: "warning",
+    leadingIcon: true,
+    dismissIcon: true,
+    message:
+      "Please check the input and ensure all required fields are filled out correctly.",
+  },
+};
+
+export const DangerAlertWithIconAndButtons = {
+  args: {
+    type: "danger",
+    title: "Danger Alert",
+    leadingIcon: true,
+    actionButtons: true,
   },
 };

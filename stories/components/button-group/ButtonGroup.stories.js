@@ -1,4 +1,4 @@
-import { createButton } from "../buttons/Button";
+import { createButton } from "../button/Button";
 
 export default {
   title: "Components / Button Group",

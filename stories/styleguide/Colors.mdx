@@ -1,44 +1,185 @@
 
-import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { Meta, ColorPalette, ColorItem, Unstyled } from '@storybook/blocks';
+import { ToastContainer, toast } from 'react-toastify';
+
+export const individualPrimary = [
+  { 50: "#ecfff7" },
+  { 100: "#d3ffed" },
+  { 200: "#aaffdd" },
+  { 300: "#69ffc3" },
+  { 400: "#21ffa3" },
+  { 500: "#00f284" },
+  { 600: "#00ca6a" },
+  { 700: "#009e56" },
+  { 800: "#008850" },
+  { 900: "#02653e" },
+  { 950: "#003920" },
+];
+
+export const businessPrimary = [
+  { 50: "#f2f7fd" },
+  { 100: "#e5edf9" },
+  { 200: "#c5dbf2" },
+  { 300: "#92bde7" },
+  { 400: "#589ad8" },
+  { 500: "#337fc8" },
+  { 600: "#2362a6" },
+  { 700: "#1d4e87" },
+  { 800: "#1c4470" },
+  { 900: "#1c3a5e" },
+  { 950: "#13253e" },
+];
+
+export const governmentPrimary = [
+  { 50: "#faf9ec" },
+  { 100: "#f3f0ce" },
+  { 200: "#e8dea0" },
+  { 300: "#dac76a" },
+  { 400: "#ceb141" },
+  { 500: "#be9c34" },
+  { 600: "#a47c2a" },
+  { 700: "#885f26" },
+  { 800: "#6e4b25" },
+  { 900: "#5f3f24" },
+  { 950: "#362212" },
+];
+
+
+export const ColorSwatch = ({ colors }) => {
+  return (
+    <article className="color-section flex flex-wrap gap-4">
+      {colors.map((item) => {
+        return Object.entries(item).map(([key, value]) => (
+          <ColorBlock colorHex={value} colorHsl={value} name={key} key={key} />
+        ));
+      })}
+    </article>
+  );
+};
+
+
+export const ColorBlock = ({ colorHex, colorHsl, name }) => {
+  const copyToClipboard = (value) => {
+    navigator.clipboard.writeText(value);
+    alert(`Copied ${value} to clipboard!`);
+  };
+
+  return (
+    <article className='flex justify-center flex-col items-center gap-4'>
+      <div
+        className="color-block"
+        style={{ backgroundColor: colorHex }}
+        onClick={() => copyToClipboard(colorHex)}></div>
+      <span className="flex flex-col gap-1 items-center text-xs">
+        <span className='font-bold'>{name}</span>
+        <span className='inline-flex gap-1'>
+          {colorHex}
+          <button
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent double copying
+              console.log('copied');
+              toast(`copied ${colorHex} to clipboard`)
+              //copyToClipboard(colorHex);
+            }}
+          >
+            <i className="bi bi-copy"></i>
+          </button>
+        </span>
+      </span>
+    </article>
+  );
+};
 
 <Meta title="StyleGuide / Colors" />
 
-<ColorPalette>
-  <ColorItem
-    title="theme.color.greyscale"
-    subtitle="Some of the greys"
-    colors={{ White: '#FFFFFF', Alabaster: '#F8F8F8', Concrete: '#F3F3F3' }}
-  />
-  <ColorItem 
-    title="theme.color.primary" 
-    subtitle="Coral" 
-    colors={{ WildWatermelon: '#FF4785' }} 
-  />
-  <ColorItem 
-    title="theme.color.secondary" 
-    subtitle="Ocean" 
-    colors={{ DodgerBlue: '#1EA7FD' }} 
-  />
-  <ColorItem
-    title="theme.color.positive"
-    subtitle="Green"
-    colors={{
-      Apple: 'rgba(102,191,60,1)',
-      Apple80: 'rgba(102,191,60,.8)',
-      Apple60: 'rgba(102,191,60,.6)',
-      Apple30: 'rgba(102,191,60,.3)',
-    }}
-  />
-  <ColorItem
-    title="gradient"
-    subtitle="Grayscale"
-    colors={{
-      Gradient: 'linear-gradient(to right,white,black)',
-    }}
-  />
-  <ColorItem
-    title="gradient"
-    subtitle="Grayscale"
-    colors={['linear-gradient(65deg,white,black)']}
-  />
-</ColorPalette>
+<Unstyled>
+<article className="prose max-w-none">
+
+# Color Palette
+
+A comprehensive palette for the design system, providing HEX and HSL values for each color group, with a copy-to-clipboard option.
+
+## Brand Primary Colors
+
+
+#### Individual
+<ColorSwatch colors={individualPrimary} />
+
+#### Business
+<ColorSwatch colors={businessPrimary} />
+
+#### Government
+<ColorSwatch colors={governmentPrimary} />
+
+### Secondary
+
+<div className="color-section flex gap-4">
+  <ColorBlock colorHex="#10b981" colorHsl="hsl(160, 63%, 44%)" name="500" />
+  <ColorBlock colorHex="#34d399" colorHsl="hsl(160, 64%, 60%)" name="400" />
+  <ColorBlock colorHex="#6ee7b7" colorHsl="hsl(160, 73%, 72%)" name="300" />
+  <ColorBlock colorHex="#a7f3d0" colorHsl="hsl(160, 82%, 88%)" name="200" />
+  <ColorBlock colorHex="#d1fae5" colorHsl="hsl(160, 87%, 95%)" name="100" />
+</div>
+
+### Accent
+
+<div className="color-section flex gap-4">
+  <ColorBlock colorHex="#f43f5e" colorHsl="hsl(348, 90%, 58%)" name="500" />
+  <ColorBlock colorHex="#fb7185" colorHsl="hsl(348, 90%, 70%)" name="400" />
+  <ColorBlock colorHex="#fda4af" colorHsl="hsl(348, 90%, 80%)" name="300" />
+  <ColorBlock colorHex="#fecdd3" colorHsl="hsl(348, 90%, 90%)" name="200" />
+  <ColorBlock colorHex="#ffe4e6" colorHsl="hsl(348, 100%, 95%)" name="100" />
+</div>
+
+## Semantic Colors
+
+### Danger
+
+<div className="color-section flex gap-4">
+  <ColorBlock colorHex="#dc2626" colorHsl="hsl(0, 81%, 50%)" name="500" />
+  <ColorBlock colorHex="#ef4444" colorHsl="hsl(0, 82%, 60%)" name="400" />
+  <ColorBlock colorHex="#f87171" colorHsl="hsl(0, 85%, 71%)" name="300" />
+  <ColorBlock colorHex="#fca5a5" colorHsl="hsl(0, 88%, 82%)" name="200" />
+  <ColorBlock colorHex="#fee2e2" colorHsl="hsl(0, 94%, 95%)" name="100" />
+</div>
+
+### Success
+
+<div className="color-section flex gap-4">
+  <ColorBlock colorHex="#16a34a" colorHsl="hsl(134, 61%, 34%)" name="500" />
+  <ColorBlock colorHex="#22c55e" colorHsl="hsl(134, 61%, 46%)" name="400" />
+  <ColorBlock colorHex="#4ade80" colorHsl="hsl(134, 66%, 56%)" name="300" />
+  <ColorBlock colorHex="#86efac" colorHsl="hsl(134, 71%, 73%)" name="200" />
+  <ColorBlock colorHex="#d9f99d" colorHsl="hsl(134, 83%, 92%)" name="100" />
+</div>
+
+## Natural Colors
+
+### Gray
+
+<div className="color-section flex gap-4">
+  <ColorBlock colorHex="#6b7280" colorHsl="hsl(222, 9%, 47%)" name="500" />
+  <ColorBlock colorHex="#9ca3af" colorHsl="hsl(222, 10%, 63%)" name="400" />
+  <ColorBlock colorHex="#d1d5db" colorHsl="hsl(222, 15%, 80%)" name="300" />
+  <ColorBlock colorHex="#e5e7eb" colorHsl="hsl(222, 20%, 90%)" name="200" />
+  <ColorBlock colorHex="#f3f4f6" colorHsl="hsl(222, 24%, 96%)" name="100" />
+</div>
+
+## Default Colors
+
+### White & Black
+
+<div className="color-section flex gap-4">
+  <ColorBlock colorHex="#ffffff" colorHsl="hsl(0, 0%, 100%)" name="White" />
+  <ColorBlock colorHex="#000000" colorHsl="hsl(0, 0%, 0%)" name="Black" />
+</div>
+</article>
+
+
+<ToastContainer 
+  position="bottom-right"
+  autoClose={2000}
+  hideProgressBar={true}
+  theme="dark"
+/>
+</Unstyled>

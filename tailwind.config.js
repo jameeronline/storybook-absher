@@ -24,6 +24,7 @@ export default {
         // },
         primary: colors.emerald,
         secondary: colors.stone,
+        tertiary: colors.slate,
         danger: colors.red,
         success: colors.emerald,
         info: colors.cyan,

@@ -1,14 +1,23 @@
 import { createAvatar } from "./Avatar";
 
+import { baseTypeVariant } from "../../utilities/config";
+
 export default {
   title: "Components / Avatar",
   tags: ["autodocs"],
   render: createAvatar,
   argTypes: {
-    type: {
+    as: {
       control: { type: "select" },
       options: ["image", "icon", "text"],
       defaultValue: "image",
+      description:
+        "The type of content displayed in the avatar (image, icon, or text).",
+    },
+    type: {
+      control: { type: "select" },
+      options: baseTypeVariant,
+      defaultValue: "primary",
       description:
         "The type of content displayed in the avatar (image, icon, or text).",
     },
@@ -17,6 +26,11 @@ export default {
       options: ["small", "medium", "large", "xlarge"],
       defaultValue: "medium",
       description: "The size of the avatar (small, medium, large or xlarge).",
+    },
+    rounded: {
+      control: { type: "boolean" },
+      defaultValue: false,
+      description: "Whether the avatar should have rounded.",
     },
     outline: {
       control: { type: "boolean" },
@@ -42,49 +56,51 @@ export default {
     },
   },
   args: {
-    type: "image",
+    as: "image",
+    type: "primary",
+    size: "large",
     outline: false,
+    rounded: false,
+    grouped: false,
     badge: false,
     badgePosition: "top",
-    grouped: false,
-    size: "large",
   },
 };
 
 //Varients
 export const ImageAvatar = {
   args: {
-    type: "image",
+    as: "image",
     outline: false,
+    grouped: false,
     badge: false,
     badgePosition: "top",
-    grouped: false,
   },
 };
 
 export const IconAvatar = {
   args: {
-    type: "icon",
+    as: "icon",
     outline: true,
+    grouped: false,
     badge: true,
     badgePosition: "bottom",
-    grouped: false,
   },
 };
 
 export const TextAvatar = {
   args: {
-    type: "text",
+    as: "text",
     outline: true,
+    grouped: true,
     badge: true,
     badgePosition: "top",
-    grouped: true,
   },
 };
 
 export const GroupedAvatars = {
   args: {
-    type: "image",
+    as: "image",
     outline: false,
     badge: false,
     grouped: true,

@@ -1,9 +1,9 @@
-import { formatHtml } from "../../utilities/code-format";
-
 export const createAccordion = ({
   withIcon = false,
   outline = false,
   elevated = false,
+  content = [],
+  toggleIcon = "bi-x", // Default toggle icon
 }) => {
   // Determine classes based on the arguments
   const typeClass = withIcon
@@ -13,29 +13,32 @@ export const createAccordion = ({
   const outlineClass = outline ? "border border-slate-200" : "";
   const elevatedClass = elevated ? "shadow-lg" : "";
 
-  // Return the accordion HTML structure
-  return formatHtml(`
+  // Available toggle icons (dropdown)
+  const toggleIcons = {
+    "bi-x": "bi bi-x",
+    "bi-chevron-down": "bi bi-chevron-down",
+    "bi-plus": "bi bi-plus",
+    "bi-arrow-down": "bi bi-arrow-down",
+    "bi-caret-down": "bi bi-caret-down",
+  };
+
+  // Return the accordion HTML structure based on content
+  return `
     <section class="w-full divide-y rounded divide-slate-200 ${outlineClass} ${elevatedClass}">
-      <details class="p-4 group" open>
-        <summary class="[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer ${typeClass} focus-visible:outline-none transition-colors duration-300">
-          ${withIcon ? '<i class="bi bi-info-circle text-base text-primary-500"></i>' : ""}
-          How does TailwindCSS work?
-          <i class="bi bi-x absolute right-0 text-base transition duration-300 top-1 shrink-0 group-open:rotate-45"></i>
-        </summary>
-        <p class="mt-4 text-slate-500">
-          Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles, and then writing them to a static CSS file.
-        </p>
-      </details>
-      <details class="p-4 group">
-        <summary class="[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer ${typeClass} focus-visible:outline-none transition-colors duration-300">
-          ${withIcon ? '<i class="bi bi-info-circle text-base text-primary-500"></i>' : ""}
-          How do I install TailwindCSS?
-          <i class="bi bi-x absolute right-0 text-base transition duration-300 top-1 shrink-0 group-open:rotate-45"></i>
-        </summary>
-        <p class="mt-4 text-slate-500">
-          The simplest and fastest way to get up and running with Tailwind CSS from scratch is with the Tailwind CLI tool. The CLI is also available as a standalone executable if you want to use it without installing Node.js. Install tailwindcss via npm, and create your tailwind.config.js file.
-        </p>
-      </details>
+      ${content
+        .map(
+          (item, index) => `
+            <details class="p-4 group" ${index === 0 ? "open" : ""}>
+              <summary class="[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer ${typeClass} focus-visible:outline-none transition-colors duration-300">
+                ${withIcon ? `<i class="${item.icon} text-base text-primary-500"></i>` : ""}
+                ${item.title}
+                <i class="${toggleIcons[toggleIcon]} absolute right-0 text-xl transition duration-300 top-1 shrink-0 group-open:rotate-45"></i>
+              </summary>
+              <p class="mt-4 text-slate-500">${item.description}</p>
+            </details>
+          `,
+        )
+        .join("")}
     </section>
-  `);
+  `;
 };

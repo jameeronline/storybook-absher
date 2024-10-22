@@ -25,8 +25,8 @@ export const createSlider = ({ autoplay, animationDuration, items }) => {
     const glide = new Glide(sliderContainer, {
       type: "carousel",
       autoplay: autoplayValue,
-      animationDuration,
-      //perView: 3,
+      animationDuration: animationDuration,
+      perView: 1,
     });
 
     // Mount the slider

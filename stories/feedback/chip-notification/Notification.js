@@ -1,5 +1,6 @@
 //import button component
-import { createButton } from "../../components/buttons/Button";
+import { createButton } from "../../components/button/Button";
+
 // Function to create Notification Chip component
 export const createNotificationChip = ({
   description = "With 20 new components!",

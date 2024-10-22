@@ -49,7 +49,6 @@ export default {
         "warning",
         "light",
         "dark",
-        "link",
       ],
       defaultValue: "primary",
       description:
@@ -61,6 +60,11 @@ export default {
       defaultValue: "large",
       description:
         "The size of the button (affects height, padding, and font).",
+    },
+    link: {
+      control: "boolean",
+      defaultValue: false,
+      description: "change the look of the button like link",
     },
     rounded: {
       control: "boolean",
@@ -96,6 +100,7 @@ export default {
       defaultValue: "bi-star",
       description:
         "The name of the Bootstrap icon to be displayed inside the button.",
+      if: { arg: "icon", truthy: true },
     },
     iconPosition: {
       control: { type: "select" },
@@ -103,12 +108,14 @@ export default {
       defaultValue: "left",
       description:
         "Position of the icon relative to the button label (left or right).",
+      if: { arg: "icon", truthy: true },
     },
     iconOnly: {
       control: "boolean",
       defaultValue: false,
       description:
         "If true, the button will display only an icon with no text label.",
+      if: { arg: "icon", truthy: true },
     },
     fullwidth: {
       control: "boolean",
@@ -125,6 +132,7 @@ export default {
     size: "medium",
     outline: false,
     rounded: false,
+    link: false,
     icon: false,
     iconName: "bi-star",
     iconPosition: "left",
@@ -332,21 +340,18 @@ export const DarkButtonSmall = {
 
 export const LinkButtonLarge = {
   args: {
-    type: "link",
     size: "large",
   },
 };
 
 export const LinkButtonMedium = {
   args: {
-    type: "link",
     size: "medium",
   },
 };
 
 export const LinkButtonSmall = {
   args: {
-    type: "link",
     size: "small",
   },
 };

@@ -98,7 +98,9 @@ export default {
     helperText: false,
     helperLabel: "Text field with helper text",
     isLeadIcon: false,
+    leadingIcon: "person",
     isTrailIcon: false,
+    trailingIcon: "calendar",
   },
 };
 
