@@ -1,6 +1,6 @@
 import { createFileUpload } from "./FileInput";
 
-import { baseTypeVariant } from "../../utilities/config";
+import { baseTypeVariant } from "../../../config/config";
 
 // Default export for Storybook
 export default {

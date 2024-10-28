@@ -1,6 +1,6 @@
 import { createNotificationChip } from "./Notification";
 
-import { typeVariant, sizeVarient } from "../../utilities/config";
+import { typeVariant, sizeVarient } from "../../../config/config";
 
 export default {
   title: "Feedback / Notification Chip",
