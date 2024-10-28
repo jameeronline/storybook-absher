@@ -1,7 +1,7 @@
 import { createTooltip } from "./Tooltip";
 
 //config
-import { typeVariant } from "../../utilities/config";
+import { typeVariant } from "../../../config/config";
 
 export default {
   title: "Components/Tooltip",
