@@ -44,6 +44,74 @@ export const governmentPrimary = [
   { 950: "#362212" },
 ];
 
+export const semanticError = [
+  {'50': '#fff0f2'},
+  {'100': '#ffdde1'},
+  {'200': '#ffc1c8'},
+  {'300': '#ff95a1'},
+  {'400': '#ff596c'},
+  {'500': '#ff263f'},
+  {'600': '#fc0622'},
+  {'700': '#eb001b'},
+  {'800': '#af0519'},
+  {'900': '#900c1b'},
+  {'950': '#500009'},
+];
+
+export const semanticInfo = [
+  {'50': '#f2f7fd'},
+  {'100': '#e4edfa'},
+  {'200': '#c2daf5'},
+  {'300': '#8cbced'},
+  {'400': '#4f99e1'},
+  {'500': '#2e83d7'},
+  {'600': '#1961b0'},
+  {'700': '#164e8e'},
+  {'800': '#164376'},
+  {'900': '#173963'},
+  {'950': '#102441'},
+];
+
+export const semanticWarning = [
+  {'50': '#fef7ec'},
+  {'100': '#fbeaca'},
+  {'200': '#f7d390'},
+  {'300': '#f3b756'},
+  {'400': '#f09e2f'},
+  {'500': '#dc7515'},
+  {'600': '#ce5a11'},
+  {'700': '#ab3e12'},
+  {'800': '#8b3115'},
+  {'900': '#732914'},
+  {'950': '#421206'},
+];
+
+export const semanticSucess = [
+  { 50: "#ecfff7" },
+  { 100: "#d3ffed" },
+  { 200: "#aaffdd" },
+  { 300: "#69ffc3" },
+  { 400: "#21ffa3" },
+  { 500: "#00f284" },
+  { 600: "#00ca6a" },
+  { 700: "#009e56" },
+  { 800: "#008850" },
+  { 900: "#02653e" },
+  { 950: "#003920" },
+];
+
+export const Alert = ({title, message}) => {
+  return (
+    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-500 border-l-4 border-blue-300 bg-blue-50 dark:text-blue-400 dark:bg-gray-800 dark:border-blue-800" role="alert">
+    <svg class="flex-shrink-0 w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <div class="ms-3 font-medium">
+      {title}: {message}
+    </div>
+</div>
+  )
+}
 
 export const ColorSwatch = ({ colors }) => {
   return (
@@ -95,12 +163,18 @@ export const ColorBlock = ({ colorHex, colorHsl, name }) => {
 <Unstyled>
 <article className="prose max-w-none">
 
-# Color Palette
+# Colors
 
+Colors play a vital role in a design system, helping establish a consistent visual identity, communicate information, and enhance the user experience. Our color palette is designed to balance aesthetic appeal with functionality, providing the foundation for creating accessible and intuitive interfaces.
 A comprehensive palette for the design system, providing HEX and HSL values for each color group, with a copy-to-clipboard option.
 
 ## Brand Primary Colors
 
+### What is brand color?
+
+The brand or primary color represents the core identity of our brand. It reflects our values and is typically the most recognizable aspect of the brand’s visual presence. Our brand color is used across key interface elements to create a cohesive look and feel and to reinforce brand recognition.
+
+<Alert title="Usage" message="The brand color should be used for primary actions, call-to-action buttons, and critical points of interaction. It ensures that the brand identity remains strong and memorable across all platforms and applications." />
 
 #### Individual
 <ColorSwatch colors={individualPrimary} />
@@ -113,6 +187,13 @@ A comprehensive palette for the design system, providing HEX and HSL values for 
 
 ### Secondary
 
+### What is a Secondary Color?
+
+The secondary color complements the primary color and is often used to highlight secondary actions or features in the user interface. Secondary colors should provide enough contrast with the primary color to offer a visual hierarchy without overpowering it.
+
+<Alert title="Usage" message="Apply the secondary color for backgrounds, secondary buttons, icons, and other supporting elements to create contrast and visual interest. It’s essential to use the secondary color in moderation to keep the primary color as the main focus.
+" />
+
 <div className="color-section flex gap-4">
   <ColorBlock colorHex="#10b981" colorHsl="hsl(160, 63%, 44%)" name="500" />
   <ColorBlock colorHex="#34d399" colorHsl="hsl(160, 64%, 60%)" name="400" />
@@ -122,6 +203,10 @@ A comprehensive palette for the design system, providing HEX and HSL values for 
 </div>
 
 ### Accent
+Accent colors are used sparingly in the design system to bring attention to specific details or interactive elements. They add vibrancy and can enhance the UI without overwhelming it, often used for highlights or special UI features.
+
+<Alert title="Usage" message="Accent colors are best for active states, iconography, badges, or to draw the user’s attention to specific elements. Use accent colors selectively to avoid creating visual noise.
+" />
 
 <div className="color-section flex gap-4">
   <ColorBlock colorHex="#f43f5e" colorHsl="hsl(348, 90%, 58%)" name="500" />
@@ -133,27 +218,67 @@ A comprehensive palette for the design system, providing HEX and HSL values for 
 
 ## Semantic Colors
 
-### Danger
+Semantic colors convey meaning and feedback in a user interface, helping users recognize and respond to information quickly. These colors are especially useful for signaling statuses like success, error, warning, and information.
+<Alert title="Usage" message="Accent colors are best for active states, iconography, badges, or to draw the user’s attention to specific elements. Use accent colors selectively to avoid creating visual noise.
+" />
 
-<div className="color-section flex gap-4">
-  <ColorBlock colorHex="#dc2626" colorHsl="hsl(0, 81%, 50%)" name="500" />
-  <ColorBlock colorHex="#ef4444" colorHsl="hsl(0, 82%, 60%)" name="400" />
-  <ColorBlock colorHex="#f87171" colorHsl="hsl(0, 85%, 71%)" name="300" />
-  <ColorBlock colorHex="#fca5a5" colorHsl="hsl(0, 88%, 82%)" name="200" />
-  <ColorBlock colorHex="#fee2e2" colorHsl="hsl(0, 94%, 95%)" name="100" />
-</div>
+### Color Definitions:
+
+<table>
+    <tr>
+        <td>**Semantic Color**</td>
+        <td>**Hex Code**</td>
+        <td>**Description**</td>
+        <td>**Use Cases**</td>
+    </tr>
+    <tr>
+        <td>Success</td>
+        <td>`#28a745`</td>
+        <td>Indicates a positive outcome, such as a successful operation.</td>
+        <td>Success messages, badges.</td>
+    </tr>
+    <tr>
+        <td>Warning</td>
+        <td>`#ffc107`</td>
+        <td>Indicates a caution or action that needs attention.</td>
+        <td>Warnings, notifications.</td>
+    </tr>
+    <tr>
+        <td>Danger</td>
+        <td>`#dc3545`</td>
+        <td>Represents errors or critical information that requires attention.</td>
+        <td>Error states, alerts.</td>
+    </tr>
+    <tr>
+        <td>Info</td>
+        <td>`#17a2b8`</td>
+        <td>Provides additional information, not urgent but useful.</td>
+        <td>Information messages, tips.</td>
+    </tr>
+</table>
+
+### Danger
+<Alert title="Danger" message="Use the danger color for errors or critical warnings that need immediate attention, like invalid inputs or system errors.
+" />
+<ColorSwatch colors={semanticError} />
 
 ### Success
+<Alert title="Success" message="Use the success color to indicate the completion of successful actions, such as saved changes or completed tasks.
+" />
+<ColorSwatch colors={semanticSucess} />
 
-<div className="color-section flex gap-4">
-  <ColorBlock colorHex="#16a34a" colorHsl="hsl(134, 61%, 34%)" name="500" />
-  <ColorBlock colorHex="#22c55e" colorHsl="hsl(134, 61%, 46%)" name="400" />
-  <ColorBlock colorHex="#4ade80" colorHsl="hsl(134, 66%, 56%)" name="300" />
-  <ColorBlock colorHex="#86efac" colorHsl="hsl(134, 71%, 73%)" name="200" />
-  <ColorBlock colorHex="#d9f99d" colorHsl="hsl(134, 83%, 92%)" name="100" />
-</div>
+### Info
+<Alert title="Info" message="Use the info color to convey additional helpful information, guiding users with context or instructions.
+" />
+<ColorSwatch colors={semanticInfo} />
+
+### Warning
+<Alert title="Warning" message="Apply the warning color to alert users of potentially risky actions, ensuring that they have enough context to proceed with caution.
+" />
+<ColorSwatch colors={semanticWarning} />
 
 ## Natural Colors
+Neutral colors are foundational to any design system and are primarily used for typography, backgrounds, borders, and other interface elements that do not require emphasis. Neutral colors help ensure readability and give prominence to primary and accent colors by providing a balanced background.
 
 ### Gray
 
@@ -173,6 +298,9 @@ A comprehensive palette for the design system, providing HEX and HSL values for 
   <ColorBlock colorHex="#ffffff" colorHsl="hsl(0, 0%, 100%)" name="White" />
   <ColorBlock colorHex="#000000" colorHsl="hsl(0, 0%, 0%)" name="Black" />
 </div>
+
+Each color in our design system has a specific role, and by applying these colors consistently, we ensure that the user interface remains accessible, visually appealing, and aligned with the brand identity.
+
 </article>
 
 

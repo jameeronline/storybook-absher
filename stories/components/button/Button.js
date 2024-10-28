@@ -20,8 +20,8 @@ export const createButton = ({
     variants: {
       type: {
         primary:
-          "bg-primary-500 hover:bg-primary-600 focus:bg-primary-700 text-white",
-        secondary: `bg-secondary-500 hover:bg-secondary-600 focus:bg-secondary-700 text-white`,
+          "bg-primary-800 hover:bg-primary-900 focus:bg-primary-950 text-white",
+        secondary: `bg-secondary-800 hover:bg-secondary-900 focus:bg-secondary-950 text-white`,
         tertiary:
           "bg-tertiary-500 hover:bg-tertiary-600 focus:bg-tertiary-700 text-white",
         danger:
@@ -35,13 +35,14 @@ export const createButton = ({
         dark: "bg-gray-800 hover:bg-gray-900 focus:bg-black text-white",
       },
       size: {
-        large: "h-12 px-8 text-md",
-        medium: "h-10 px-4 text-sm",
-        small: "h-8 px-3 text-xs",
+        xlarge: "h-16 px-24 text-lg",
+        large: "h-12 px-16 text-base",
+        medium: "h-10 px-8 text-sm",
+        small: "h-8 px-4 text-xs",
       },
       rounded: {
         true: "rounded-full",
-        false: "rounded",
+        false: "rounded-md",
       },
       iconOnly: {
         true: "p-0 w-12",
@@ -55,7 +56,7 @@ export const createButton = ({
         type: "primary",
         outline: true,
         class:
-          "bg-transparent border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white",
+          "bg-transparent border-2 border-primary-800 text-primary-800 hover:bg-primary-900 hover:text-white",
       },
       {
         type: "secondary",
@@ -109,7 +110,7 @@ export const createButton = ({
         type: "primary",
         link: true,
         class:
-          "bg-transparent hover:bg-primary-100 text-primary-500 hover:text-primary-700 underline",
+          "bg-transparent hover:bg-primary-100 text-primary-800 hover:text-primary-800 underline",
       },
       {
         type: "secondary",

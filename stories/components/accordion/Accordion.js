@@ -30,7 +30,7 @@ export const createAccordion = ({
           (item, index) => `
             <details class="p-4 group" ${index === 0 ? "open" : ""}>
               <summary class="[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer ${typeClass} focus-visible:outline-none transition-colors duration-300">
-                ${withIcon ? `<i class="${item.icon} text-base text-primary-500"></i>` : ""}
+                ${withIcon ? `<i class="${item.icon} text-2xl text-primary-800"></i>` : ""}
                 ${item.title}
                 <i class="${toggleIcons[toggleIcon]} absolute right-0 text-xl transition duration-300 top-1 shrink-0 group-open:rotate-45"></i>
               </summary>

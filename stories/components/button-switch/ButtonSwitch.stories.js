@@ -59,9 +59,10 @@ export const DefaultToggle = {
   args: {},
 };
 
-export const ToggleWithIcon = {
+export const ToggleWithIconLarge = {
   args: {
     trailIcon: true,
+    size: "large",
   },
 };
 

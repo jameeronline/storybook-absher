@@ -1,6 +1,6 @@
 import { createAvatar } from "./Avatar";
 
-import { baseTypeVariant } from "../../utilities/config";
+import { baseTypeVariant } from "../../../config/config";
 
 export default {
   title: "Components / Avatar",

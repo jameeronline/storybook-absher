@@ -1,40 +1,10 @@
-import clsx from "clsx";
+import { createLoader } from "./Loader";
+import { baseTypeVariant } from "../../../config/config";
 
 export default {
-  title: "Components/Spinner",
+  title: "Components/Loader",
   tags: ["autodocs"],
-  render: ({ size, type, variant }) => {
-    const sizeClasses = {
-      small: "w-6 h-6",
-      medium: "w-8 h-8",
-      large: "w-10 h-10",
-      xlarge: "w-12 h-12",
-    };
-
-    const variantColors = {
-      primary: "stroke-primary-500",
-      secondary: "stroke-secondary-500",
-      danger: "stroke-danger-500",
-      success: "stroke-success-500",
-      info: "stroke-info-500",
-      warning: "stroke-warning-500",
-    };
-
-    return `
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title-04a desc-04a" aria-live="polite" aria-busy="true"
-        class="${clsx(sizeClasses[size], "animate-spin")}">
-        <title id="title-04a">Loading</title>
-        <desc id="desc-04a">Loading spinner</desc>
-        ${
-          type === "circle"
-            ? `<circle cx="12" cy="12" r="10" class="stroke-slate-200" stroke-width="4" />
-               <path d="M12 22C14.6522 22 17.1957 20.9464 19.0711 19.0711C20.9464 17.1957 22 14.6522 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2" class="${variantColors[variant]}" stroke-width="4" />`
-            : `<rect x="2" y="2" width="20" height="20" rx="5" class="stroke-slate-200" stroke-width="4" />
-               <path d="M12 22C14.6522 22 17.1957 20.9464 19.0711 19.0711C20.9464 17.1957 22 14.6522 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2" class="${variantColors[variant]}" stroke-width="4" />`
-        }
-      </svg>
-    `;
-  },
+  render: createLoader,
   argTypes: {
     size: {
       control: { type: "select" },
@@ -43,14 +13,14 @@ export default {
       defaultValue: "medium",
     },
     type: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: ["circle", "square"],
       description: "Shape of the spinner",
       defaultValue: "circle",
     },
     variant: {
       control: { type: "select" },
-      options: ["primary", "secondary", "danger", "success", "info", "warning"],
+      options: baseTypeVariant,
       description: "Color variant of the spinner",
       defaultValue: "primary",
     },

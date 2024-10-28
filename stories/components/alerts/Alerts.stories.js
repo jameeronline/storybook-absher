@@ -1,5 +1,5 @@
 import { createAlert } from "./Alert";
-import { semanticTypeVarients } from "../../utilities/config";
+import { semanticVarients } from "../../../config/config";
 
 export default {
   title: "Components/Alerts",
@@ -8,7 +8,7 @@ export default {
   argTypes: {
     type: {
       control: "select",
-      options: semanticTypeVarients,
+      options: semanticVarients,
       description: "Type of alert",
       defaultValue: "success",
     },

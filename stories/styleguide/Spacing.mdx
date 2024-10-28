@@ -1,3 +1,87 @@
-import { Meta, Title, Source, Unstyled } from "@storybook/blocks";
+import { Meta, ColorPalette, ColorItem, Unstyled, Canvas } from '@storybook/blocks';
+
+export const SpacingBox = ({size = "md"}) => (
+  <div style={{ margin: 'var(--spacing-md)', padding: 'var(--spacing-lg)' }}>
+    Content with medium margin and large padding - {size}
+  </div>
+);
 
 <Meta title="StyleGuide / Spacing" />
+
+<Unstyled>
+<article className="prose max-w-none">
+# Spacing
+
+Spacing plays a vital role in ensuring visual harmony in a design system. It maintains consistency and improves user experience by providing a balanced layout. Our design system uses a modular scale for spacing, which helps create meaningful and predictable gaps between components.
+
+## Spacing Scale
+
+We have a range of predefined spacing units based on a multiple scale. These units allow designers and developers to apply consistent spacing values throughout the user interface.
+
+### Base Unit
+
+Our base unit of spacing is `4px`. All other spacing values are multiples of this base unit.
+
+<table class='table-fixed'>
+    <tr>
+        <td>Name</td>
+        <td>Value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>`xs`</td>
+        <td>4px</td>
+        <td>Smallest Spacing Unit, Used For Tight Elements.</td>
+    </tr>
+    <tr>
+        <td>`sm`</td>
+        <td>8px</td>
+        <td>Small Spacing For Closely Related Items.</td>
+    </tr>
+    <tr>
+        <td>`md`</td>
+        <td>16px</td>
+        <td>Medium Spacing For General Layout.</td>
+    </tr>
+    <tr>
+        <td>`lg`</td>
+        <td>24px</td>
+        <td>Large Spacing For Clear Separation Of Sections.</td>
+    </tr>
+    <tr>
+        <td>`xl`</td>
+        <td>32px</td>
+        <td>Extra-Large Spacing For Larger UI Areas.</td>
+    </tr>
+    <tr>
+        <td>`xxl`</td>
+        <td>48px</td>
+        <td>Significant Spacing Used In Big Containers.</td>
+    </tr>
+</table>
+
+
+## Spacing Tokens
+
+Design tokens are specific values that can be referenced in code. These spacing tokens are used in CSS variables or JavaScript objects to maintain consistency across the product.
+
+<SpacingBox size="xs">Extra Small (4px)</SpacingBox>
+<SpacingBox size="sm">Small (8px)</SpacingBox>
+<SpacingBox size="md">Medium (16px)</SpacingBox>
+<SpacingBox size="lg">Large (24px)</SpacingBox>
+<SpacingBox size="xl">Extra Large (32px)</SpacingBox>
+<SpacingBox size="xxl">Double Extra Large (48px)</SpacingBox>
+
+### Explanation:
+
+1. **Introduction**: Introduces the purpose and importance of spacing in a design system.
+2. **Spacing Scale**: Provides a clear table of spacing values (similar to what you'd see in design systems like Tawakkalna).
+3. **Design Tokens**: Defines how spacing tokens can be integrated into CSS.
+4. **Usage**: Includes examples of how to use spacing tokens both in CSS and React, showing practical implementation.
+5. **Visual Representation**: Adds visual examples to help developers and designers see the spacing values in action.
+6. **Best Practices**: Suggests guidelines to maintain consistency.
+7. **Accessibility**: Offers notes on ensuring the spacing system works for all users.
+
+This MDX structure provides comprehensive documentation, making it easier for developers to understand, apply, and maintain spacing in the design system.
+</article>
+</Unstyled>

@@ -19,7 +19,7 @@ export const createInput = ({
       base: "relative",
       form_group: "relative mt-2 mb-4",
       input:
-        "relative w-full px-4 transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-danger-500 invalid:text-danger-500 focus:border-primary-500 focus:outline-none invalid:focus:border-danger-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400",
+        "relative w-full px-4 transition-all border rounded outline-none focus-visible:outline-none peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-danger-500 invalid:text-danger-500 focus:border-primary-800 focus:outline-none invalid:focus:border-danger-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400",
       leadingIcon_slot:
         "absolute w-6 h-6 cursor-pointer top-3 left-4 text-slate-400",
       trailingIcon_slot:
@@ -32,13 +32,13 @@ export const createInput = ({
     variants: {
       size: {
         small: {
-          label_slot: "text-xs",
+          label_slot: "text-sm",
           input: "h-12",
           leadingIcon_slot: "text-xl w-6 h-6",
           trailingIcon_slot: "text-xl w-6 h-6",
         },
         default: {
-          label_slot: "text-sm",
+          label_slot: "text-md",
           input: "h-14",
           leadingIcon_slot: "text-2xl w-6 h-6 left-4",
           trailingIcon_slot: "text-2xl w-6 h-6 right-4",

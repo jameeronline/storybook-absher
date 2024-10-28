@@ -1,3 +1,4 @@
+import { background } from "@storybook/theming";
 import { createButton } from "./Button"; // Import the render function
 
 export default {
@@ -56,7 +57,7 @@ export default {
     },
     size: {
       control: { type: "select" },
-      options: ["small", "medium", "large"],
+      options: ["small", "medium", "large", "xlarge"],
       defaultValue: "large",
       description:
         "The size of the button (affects height, padding, and font).",
@@ -177,19 +178,19 @@ export const SecondaryButtonLarge = {
   },
 };
 
-export const SecondaryButtonMedium = {
-  args: {
-    type: "secondary",
-    size: "medium",
-  },
-};
+// export const SecondaryButtonMedium = {
+//   args: {
+//     type: "secondary",
+//     size: "medium",
+//   },
+// };
 
-export const SecondaryButtonSmall = {
-  args: {
-    type: "secondary",
-    size: "small",
-  },
-};
+// export const SecondaryButtonSmall = {
+//   args: {
+//     type: "secondary",
+//     size: "small",
+//   },
+// };
 
 export const TertiaryButtonLarge = {
   args: {
@@ -198,19 +199,19 @@ export const TertiaryButtonLarge = {
   },
 };
 
-export const TertiaryButtonMedium = {
-  args: {
-    type: "tertiary",
-    size: "medium",
-  },
-};
+// export const TertiaryButtonMedium = {
+//   args: {
+//     type: "tertiary",
+//     size: "medium",
+//   },
+// };
 
-export const TertiaryButtonSmall = {
-  args: {
-    type: "tertiary",
-    size: "small",
-  },
-};
+// export const TertiaryButtonSmall = {
+//   args: {
+//     type: "tertiary",
+//     size: "small",
+//   },
+// };
 
 export const DangerButtonLarge = {
   args: {
@@ -219,19 +220,19 @@ export const DangerButtonLarge = {
   },
 };
 
-export const DangerButtonMedium = {
-  args: {
-    type: "danger",
-    size: "medium",
-  },
-};
+// export const DangerButtonMedium = {
+//   args: {
+//     type: "danger",
+//     size: "medium",
+//   },
+// };
 
-export const DangerButtonSmall = {
-  args: {
-    type: "danger",
-    size: "small",
-  },
-};
+// export const DangerButtonSmall = {
+//   args: {
+//     type: "danger",
+//     size: "small",
+//   },
+// };
 
 export const SuccessButtonLarge = {
   args: {
@@ -240,19 +241,19 @@ export const SuccessButtonLarge = {
   },
 };
 
-export const SuccessButtonMedium = {
-  args: {
-    type: "success",
-    size: "medium",
-  },
-};
+// export const SuccessButtonMedium = {
+//   args: {
+//     type: "success",
+//     size: "medium",
+//   },
+// };
 
-export const SuccessButtonSmall = {
-  args: {
-    type: "success",
-    size: "small",
-  },
-};
+// export const SuccessButtonSmall = {
+//   args: {
+//     type: "success",
+//     size: "small",
+//   },
+// };
 
 export const InfoButtonLarge = {
   args: {
@@ -261,19 +262,19 @@ export const InfoButtonLarge = {
   },
 };
 
-export const InfoButtonMedium = {
-  args: {
-    type: "info",
-    size: "medium",
-  },
-};
+// export const InfoButtonMedium = {
+//   args: {
+//     type: "info",
+//     size: "medium",
+//   },
+// };
 
-export const InfoButtonSmall = {
-  args: {
-    type: "info",
-    size: "small",
-  },
-};
+// export const InfoButtonSmall = {
+//   args: {
+//     type: "info",
+//     size: "small",
+//   },
+// };
 
 export const WarningButtonLarge = {
   args: {
@@ -282,19 +283,19 @@ export const WarningButtonLarge = {
   },
 };
 
-export const WarningButtonMedium = {
-  args: {
-    type: "warning",
-    size: "medium",
-  },
-};
+// export const WarningButtonMedium = {
+//   args: {
+//     type: "warning",
+//     size: "medium",
+//   },
+// };
 
-export const WarningButtonSmall = {
-  args: {
-    type: "warning",
-    size: "small",
-  },
-};
+// export const WarningButtonSmall = {
+//   args: {
+//     type: "warning",
+//     size: "small",
+//   },
+// };
 
 export const LightButtonLarge = {
   args: {
@@ -303,19 +304,19 @@ export const LightButtonLarge = {
   },
 };
 
-export const LightButtonMedium = {
-  args: {
-    type: "light",
-    size: "medium",
-  },
-};
+// export const LightButtonMedium = {
+//   args: {
+//     type: "light",
+//     size: "medium",
+//   },
+// };
 
-export const LightButtonSmall = {
-  args: {
-    type: "light",
-    size: "small",
-  },
-};
+// export const LightButtonSmall = {
+//   args: {
+//     type: "light",
+//     size: "small",
+//   },
+// };
 
 export const DarkButtonLarge = {
   args: {
@@ -324,37 +325,40 @@ export const DarkButtonLarge = {
   },
 };
 
-export const DarkButtonMedium = {
-  args: {
-    type: "dark",
-    size: "medium",
-  },
-};
+// export const DarkButtonMedium = {
+//   args: {
+//     type: "dark",
+//     size: "medium",
+//   },
+// };
 
-export const DarkButtonSmall = {
-  args: {
-    type: "dark",
-    size: "small",
-  },
-};
+// export const DarkButtonSmall = {
+//   args: {
+//     type: "dark",
+//     size: "small",
+//   },
+// };
 
 export const LinkButtonLarge = {
   args: {
     size: "large",
+    link: true,
   },
 };
 
-export const LinkButtonMedium = {
-  args: {
-    size: "medium",
-  },
-};
+// export const LinkButtonMedium = {
+//   args: {
+//     size: "medium",
+//     link: true,
+//   },
+// };
 
-export const LinkButtonSmall = {
-  args: {
-    size: "small",
-  },
-};
+// export const LinkButtonSmall = {
+//   args: {
+//     size: "small",
+//     link: true,
+//   },
+// };
 
 export const FullwidthPrimaryButton = {
   args: {

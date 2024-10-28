@@ -1,25 +1,31 @@
 import { createDropdown } from "./Dropdown";
+import { initDropdownInteractions } from "../../../scripts/dropdown";
 
 //config
-import { typeVariant } from "../../utilities/config";
+import { baseTypeVariant } from "../../../config/config";
 
 // Export default meta information
 export default {
   title: "Components/Dropdown",
   tags: ["autodocs"],
-  render: createDropdown,
-  loaders: [
-    async () => {
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log(document.querySelectorAll("button[data-dropdown]"));
-        document.querySelectorAll("button[data-dropdown]").forEach((item) => {
-          item.addEventListener("click", () => {
-            console.log("clicked");
-          });
-        });
-      });
+  parameters: {
+    backgrounds: {
+      values: [
+        { name: "light", value: "#AAA" },
+        { name: "dark", value: "#333" },
+      ],
     },
-  ],
+  },
+  render: (args) => {
+    const dropdownContainer = document.createElement("div");
+    const dropdown = createDropdown(args);
+    dropdownContainer.innerHTML = dropdown;
+
+    // Attach the dropdown interactions
+    initDropdownInteractions();
+
+    return dropdownContainer;
+  },
   argTypes: {
     label: {
       control: "text",
@@ -35,8 +41,8 @@ export default {
     varient: {
       control: {
         type: "select",
-        options: typeVariant,
       },
+      options: baseTypeVariant,
       description: "Choose the varient of the dropdown button",
       defaultValue: "primary",
     },
@@ -54,8 +60,8 @@ export default {
   args: {
     label: "Choose One",
     varient: "primary",
-    withIcon: true,
-    withDescription: true,
+    withIcon: false,
+    withDescription: false,
     menuItems: [
       {
         title: "Dashboard",

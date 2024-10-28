@@ -5,6 +5,7 @@ export default {
   tags: ["autodocs"],
   render: (args) => {
     const container = document.createElement("div");
+    container.classList.add("test-slider");
 
     // Clear any previous slider instance by removing existing elements
     container.innerHTML = "";
@@ -64,7 +65,6 @@ export const Default = {
   },
 };
 
-// Variants
 export const BasicSlider = {
   args: {
     autoplay: false,

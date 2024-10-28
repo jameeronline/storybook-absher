@@ -20,18 +20,16 @@ export const createSlider = ({ autoplay, animationDuration, items }) => {
     </div>
   `;
 
-  // Initialize Glide.js instance
-  document.addEventListener("DOMContentLoaded", () => {
-    const glide = new Glide(sliderContainer, {
-      type: "carousel",
-      autoplay: autoplayValue,
-      animationDuration: animationDuration,
-      perView: 1,
-    });
-
-    // Mount the slider
-    glide.mount();
+  // Initialize Glide instance directly
+  const glide = new Glide(sliderContainer, {
+    type: "carousel",
+    autoplay: autoplayValue,
+    animationDuration: animationDuration,
+    perView: 2,
   });
+
+  // Mount the slider after adding it to the DOM
+  setTimeout(() => glide.mount(), 0);
 
   return sliderContainer;
 };

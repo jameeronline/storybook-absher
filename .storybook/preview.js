@@ -19,12 +19,20 @@ import "../node_modules/@glidejs/glide/dist/css/glide.theme.min.css";
 import "../node_modules/react-toastify/dist/ReactToastify.css";
 import "../node_modules/flatpickr/dist/flatpickr.css";
 
+//JS functions
+// main.js
+import { initializeTabs } from "../scripts/tab";
+
+document.addEventListener("DOMContentLoaded", () => {
+  initializeTabs();
+  initDropdownInteractions();
+});
+
 //UI config
 const preview = {
   decorators: [
     (Story) => {
       const storyOutput = Story(); // Get the Story output (HTMLElement or string)
-      console.log(storyOutput);
       const formattedHTML = getFormattedHtml(storyOutput); // Format the HTML based on type
       return `${formattedHTML}`; // Return formatted HTML
     },

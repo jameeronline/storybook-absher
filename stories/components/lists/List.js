@@ -12,7 +12,7 @@ export const createList = ({
 
     switch (isLeadingItemType) {
       case "icon":
-        return `<i class="${item.icon} text-lg text-primary-500"></i>`;
+        return `<i class="${item.icon} text-2xl text-primary-800"></i>`;
       case "avatar":
         return `
             <a href="#" class="relative flex items-center justify-center w-10 h-10 text-white rounded-full">
@@ -24,7 +24,7 @@ export const createList = ({
       case "image":
         return `<img src="${item.image}" alt="${item.title}" class="w-10 h-10 rounded-full" />`;
       case "checkbox":
-        return `<input type="checkbox" class="form-checkbox h-4 w-4 text-primary-500">`;
+        return `<input type="checkbox" class="form-checkbox h-4 w-4 text-primary-800">`;
       default:
         return "";
     }
@@ -42,7 +42,7 @@ export const createList = ({
       case "icon":
         return `<i class="bi bi-three-dots-vertical text-lg text-slate-400"></i>`;
       case "checkbox":
-        return `<input type="checkbox" class="form-checkbox h-4 w-4 text-primary-500">`;
+        return `<input type="checkbox" class="form-checkbox h-4 w-4 text-primary-800">`;
       default:
         return "";
     }
