@@ -11,6 +11,7 @@ const config = {
     "@storybook/addon-interactions",
     "@whitespace/storybook-addon-html",
     "@storybook/addon-themes",
+    "@storybook/addon-highlight",
     "storybook-addon-rtl",
     //"storybook-dark-mode",
     "@storybook/addon-docs",

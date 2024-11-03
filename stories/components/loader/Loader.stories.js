@@ -3,8 +3,13 @@ import { baseTypeVariant } from "../../../config/config";
 
 export default {
   title: "Components/Loader",
-  tags: ["autodocs"],
+  //tags: ["autodocs"],
   render: createLoader,
+  // parameters: {
+  //   docs: {
+  //     controls: { exclude: ["size"] },
+  //   },
+  // },
   argTypes: {
     size: {
       control: { type: "select" },

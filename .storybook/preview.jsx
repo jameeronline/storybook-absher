@@ -1,7 +1,24 @@
 /** @type { import('@storybook/html').Preview } */
+import React from "react";
+import { DocsContainer } from "@storybook/addon-docs";
+import Documentation from "./Documentation.mdx";
 
 //import { Preview, Renderer } from "@storybook/your-renderer";
 import { withThemeByClassName } from "@storybook/addon-themes";
+//import { DocsContainer } from "@storybook/addon-docs";
+import {
+  Canvas,
+  Controls,
+  Meta,
+  Unstyled,
+  Story,
+  Primary,
+  Stories,
+  Source,
+  Title,
+  Subtitle,
+  Description,
+} from "@storybook/blocks";
 
 //Dark Mode / Light Mode
 import { themes } from "@storybook/theming";
@@ -46,6 +63,62 @@ const preview = {
   ],
   parameters: {
     //layout: "centered",
+    //docs: {
+    //container: DocsContainer,
+    //page: Documentation,
+    // page: () => {
+    //   return (
+    //     <Unstyled>
+    //       <article className="prose max-w-none">
+    //         <Title />
+    //         <Subtitle />
+    //         <Description />
+    //         <div className="bg-emerald-50 px-6 py-2">
+    //           <Primary />
+    //           <Controls />
+    //         </div>
+    //         <h2>Variants</h2>
+    //         <Stories />
+    //       </article>
+    //     </Unstyled>
+    //   );
+    // },
+    //},
+    options: {
+      storySort: {
+        order: [
+          "Getting Started",
+          "StyleGuide",
+          [
+            "Introduction",
+            "Colors",
+            "Typography",
+            "Icons",
+            "Spacing",
+            "Utilities",
+            "Assets",
+            "*",
+          ],
+          "Design Tokens",
+          "Components",
+          ["*"],
+          "Form Elements",
+          "Navigation",
+          "Feedback",
+          "Templates",
+          "Pages",
+          [
+            "Welcome",
+            "Form",
+            "Data Table",
+            "Confirmation",
+            "Payment",
+            "Success",
+          ],
+          "*",
+        ],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -65,7 +138,7 @@ const preview = {
     //darkClass: "lights-out",
     //lightClass: "lights-on",
     //dark: { ...themes.dark, appBg: "#00663D" }, // Override the default dark theme
-    //light: { ...themes.normal, appBg: "#09572B" }, // Override the default light theme
+    //light: { ...themes.normal, appBg: "#e1f4e9" }, // Override the default light theme
     //},
   },
 };

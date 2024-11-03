@@ -12,7 +12,7 @@ export const createProgressBar = ({
 
   let typeClass = {
     primary:
-      "[&::-webkit-progress-bar]:bg-primary-100 [&::-webkit-progress-value]:bg-primary-500",
+      "[&::-webkit-progress-bar]:bg-primary-100 [&::-webkit-progress-value]:bg-primary-800",
     secondary:
       "[&::-webkit-progress-bar]:bg-secondary-100 [&::-webkit-progress-value]:bg-secondary-500",
     danger:

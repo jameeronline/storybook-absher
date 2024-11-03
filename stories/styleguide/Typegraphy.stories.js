@@ -1,5 +1,5 @@
 export default {
-  title: "Styleguide/Typography",
+  title: "StyleGuide / Typography2",
   tags: ["autodocs"],
   render: ({ label, type, fontWeight, color, as, customColor }) => {
     const fontType = {

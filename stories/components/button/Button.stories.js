@@ -104,7 +104,7 @@ export default {
       if: { arg: "icon", truthy: true },
     },
     iconPosition: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: ["left", "right"],
       defaultValue: "left",
       description:

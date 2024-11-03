@@ -18,7 +18,7 @@ export default create({
   colorSecondary: "#008850", // Secondary color used for emphasis or contrasting UI elements
 
   // UI
-  appBg: "#F5F5F5", // Background color for the overall app (outside the main content area)
+  appBg: "#F0F9F5", // Background color for the overall app (outside the main content area)
   appContentBg: "#FFFFFF", // Background color for the main content area where stories are displayed
   appPreviewBg: "#F5F5F5", // Background color for the preview area (where components are rendered)
   appBorderColor: "#D1D5DB", // Border color used around elements like panels and inputs

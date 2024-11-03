@@ -15,7 +15,7 @@ export const createLoader = ({
         xlarge: "w-12 h-12",
       },
       type: {
-        primary: "stroke-primary-500",
+        primary: "stroke-primary-800",
         secondary: "stroke-secondary-500",
         danger: "stroke-danger-500",
         success: "stroke-success-500",

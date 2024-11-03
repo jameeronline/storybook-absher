@@ -3,6 +3,13 @@ import { createProgressBar } from "./Progressbar";
 export default {
   title: "Feedback / ProgressBar",
   tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: "description about the progress bar component",
+      },
+    },
+  },
   render: createProgressBar,
   argTypes: {
     varient: {

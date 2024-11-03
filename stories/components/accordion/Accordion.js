@@ -7,7 +7,7 @@ export const createAccordion = ({
 }) => {
   // Determine classes based on the arguments
   const typeClass = withIcon
-    ? "text-slate-700 group-hover:text-slate-900 flex items-center gap-2"
+    ? "text-slate-700 group-hover:text-slate-900 flex items-center gap-3"
     : "text-slate-700 group-hover:text-slate-900";
 
   const outlineClass = outline ? "border border-slate-200" : "";
@@ -32,9 +32,9 @@ export const createAccordion = ({
               <summary class="[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer ${typeClass} focus-visible:outline-none transition-colors duration-300">
                 ${withIcon ? `<i class="${item.icon} text-2xl text-primary-800"></i>` : ""}
                 ${item.title}
-                <i class="${toggleIcons[toggleIcon]} absolute right-0 text-xl transition duration-300 top-1 shrink-0 group-open:rotate-45"></i>
+                <i class="${toggleIcons[toggleIcon]} absolute right-0 text-xl transition duration-300 top-1 shrink-0 group-open:rotate-180"></i>
               </summary>
-              <p class="mt-4 text-slate-500">${item.description}</p>
+              <p class="mt-4 text-slate-500 transition duration-300 ">${item.description}</p>
             </details>
           `,
         )

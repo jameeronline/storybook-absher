@@ -88,7 +88,7 @@ export default {
     withIcon: false,
     outline: false,
     elevated: false,
-    toggleIcon: "bi-x",
+    toggleIcon: "bi-chevron-down",
   },
 };
 
@@ -101,32 +101,32 @@ export const Basic = {
   },
 };
 
-export const BasicWithIcon = {
+export const WithIcon = {
   args: {
     withIcon: true,
   },
 };
 
-export const BasicOutlined = {
+export const Outlined = {
   args: {
     outline: true,
   },
 };
 
-export const BasicElevated = {
+export const Elevated = {
   args: {
     elevated: true,
   },
 };
 
-export const BasicWithIconOutlined = {
+export const WithIconOutlined = {
   args: {
     withIcon: true,
     outline: true,
   },
 };
 
-export const BasicWithIconElevated = {
+export const WithIconElevated = {
   args: {
     withIcon: true,
     elevated: true,
@@ -135,6 +135,6 @@ export const BasicWithIconElevated = {
 
 export const CustomToggleIcon = {
   args: {
-    toggleIcon: "bi-chevron-down",
+    toggleIcon: "bi-arrow-down",
   },
 };
