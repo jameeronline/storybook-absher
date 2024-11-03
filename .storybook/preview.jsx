@@ -1,7 +1,7 @@
 /** @type { import('@storybook/html').Preview } */
-import React from "react";
-import { DocsContainer } from "@storybook/addon-docs";
-import Documentation from "./Documentation.mdx";
+//import React from "react";
+//import { DocsContainer } from "@storybook/addon-docs";
+//import Documentation from "./Documentation.mdx";
 
 //import { Preview, Renderer } from "@storybook/your-renderer";
 import { withThemeByClassName } from "@storybook/addon-themes";
