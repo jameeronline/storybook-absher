@@ -25,7 +25,7 @@ export const createButton = ({
         tertiary:
           "bg-tertiary-500 hover:bg-tertiary-600 focus:bg-tertiary-700 text-white",
         danger:
-          "bg-danger-600 hover:bg-danger-700 focus:bg-danger-800 text-white",
+          "bg-danger-800 hover:bg-danger-900 focus:bg-danger-800 text-white",
         success:
           "bg-success-600 hover:bg-success-700 focus:bg-success-800 text-white",
         info: "bg-info-600 hover:bg-info-700 focus:bg-info-800 text-white",
@@ -35,7 +35,7 @@ export const createButton = ({
         dark: "bg-gray-800 hover:bg-gray-900 focus:bg-black text-white",
       },
       size: {
-        xlarge: "h-16 px-24 text-lg",
+        xlarge: "h-16 px-24 text-xl",
         large: "h-12 px-16 text-base",
         medium: "h-10 px-8 text-sm",
         small: "h-8 px-4 text-xs",

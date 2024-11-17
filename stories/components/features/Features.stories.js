@@ -15,14 +15,14 @@ export default {
   },
   argTypes: {
     type: {
-      control: { type: "select" },
+      control: { type: "radio" },
       options: ["one-line", "title"],
       defaultValue: "one-line",
       description: "Feature item type (One line or Title with text)",
     },
     iconPosition: {
       control: { type: "select" },
-      options: ["left", "center", "top-left"],
+      options: ["left", "center", "top"],
       defaultValue: "left",
       description: "Position of the icon relative to the content",
     },
@@ -127,21 +127,21 @@ export const TitleLineWithSquareIconLeft = {
 export const OneLineWithIconCenter = {
   args: {
     type: "one-line",
-    iconPosition: "top-left",
+    iconPosition: "top",
   },
 };
 
 export const TitleLineWithIconCenter = {
   args: {
     type: "title",
-    iconPosition: "top-left",
+    iconPosition: "top",
   },
 };
 
 export const OneLineWithSquareIconCenter = {
   args: {
     type: "one-line",
-    iconPosition: "top-left",
+    iconPosition: "top",
     isSquare: true,
   },
 };
@@ -149,7 +149,7 @@ export const OneLineWithSquareIconCenter = {
 export const TitleLineWithSquareIconCenter = {
   args: {
     type: "title",
-    iconPosition: "top-left",
+    iconPosition: "top",
     isSquare: true,
   },
 };

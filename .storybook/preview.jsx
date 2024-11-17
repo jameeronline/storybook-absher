@@ -1,24 +1,5 @@
 /** @type { import('@storybook/html').Preview } */
-//import React from "react";
-//import { DocsContainer } from "@storybook/addon-docs";
-//import Documentation from "./Documentation.mdx";
-
-//import { Preview, Renderer } from "@storybook/your-renderer";
 import { withThemeByClassName } from "@storybook/addon-themes";
-//import { DocsContainer } from "@storybook/addon-docs";
-import {
-  Canvas,
-  Controls,
-  Meta,
-  Unstyled,
-  Story,
-  Primary,
-  Stories,
-  Source,
-  Title,
-  Subtitle,
-  Description,
-} from "@storybook/blocks";
 
 //Dark Mode / Light Mode
 import { themes } from "@storybook/theming";
@@ -39,6 +20,7 @@ import "../node_modules/flatpickr/dist/flatpickr.css";
 //JS functions
 // main.js
 import { initializeTabs } from "../scripts/tab";
+import { initDropdownInteractions } from "../scripts/dropdown";
 
 document.addEventListener("DOMContentLoaded", () => {
   initializeTabs();
@@ -58,32 +40,10 @@ const preview = {
         light: "",
         dark: "dark",
       },
-      defaultTheme: "light",
+      defaultTheme: "dark",
     }),
   ],
   parameters: {
-    //layout: "centered",
-    //docs: {
-    //container: DocsContainer,
-    //page: Documentation,
-    // page: () => {
-    //   return (
-    //     <Unstyled>
-    //       <article className="prose max-w-none">
-    //         <Title />
-    //         <Subtitle />
-    //         <Description />
-    //         <div className="bg-emerald-50 px-6 py-2">
-    //           <Primary />
-    //           <Controls />
-    //         </div>
-    //         <h2>Variants</h2>
-    //         <Stories />
-    //       </article>
-    //     </Unstyled>
-    //   );
-    // },
-    //},
     options: {
       storySort: {
         order: [
@@ -101,7 +61,6 @@ const preview = {
           ],
           "Design Tokens",
           "Components",
-          ["*"],
           "Form Elements",
           "Navigation",
           "Feedback",
@@ -134,12 +93,6 @@ const preview = {
         singleAttributePerLine: true,
       },
     },
-    //darkMode: {
-    //darkClass: "lights-out",
-    //lightClass: "lights-on",
-    //dark: { ...themes.dark, appBg: "#00663D" }, // Override the default dark theme
-    //light: { ...themes.normal, appBg: "#e1f4e9" }, // Override the default light theme
-    //},
   },
 };
 

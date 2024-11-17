@@ -1,3 +1,5 @@
+import { tv } from "tailwind-variants";
+
 export const createAccordion = ({
   withIcon = false,
   outline = false,
@@ -5,13 +7,34 @@ export const createAccordion = ({
   content = [],
   toggleIcon = "bi-x", // Default toggle icon
 }) => {
-  // Determine classes based on the arguments
-  const typeClass = withIcon
-    ? "text-slate-700 group-hover:text-slate-900 flex items-center gap-3"
-    : "text-slate-700 group-hover:text-slate-900";
-
-  const outlineClass = outline ? "border border-slate-200" : "";
-  const elevatedClass = elevated ? "shadow-lg" : "";
+  const accordionClassNames = tv({
+    slots: {
+      base: "w-full divide-y rounded divide-slate-200 text-slate-700 group-hover:text-slate-900",
+      itemBase: "p-4 group",
+      head: "[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer focus-visible:outline-none transition-colors duration-300",
+      body: "mt-4 text-slate-500 transition duration-300",
+      leadIcon: "text-2xl text-primary-800",
+      trailIcon:
+        "absolute right-0 text-xl transition duration-300 top-1 shrink-0 group-open:rotate-180",
+    },
+    variants: {
+      icon: {
+        true: {
+          head: "flex items-center gap-3",
+        },
+      },
+      outline: {
+        true: {
+          base: "border border-slate-200",
+        },
+      },
+      elevated: {
+        true: {
+          base: "shadow-lg",
+        },
+      },
+    },
+  });
 
   // Available toggle icons (dropdown)
   const toggleIcons = {
@@ -22,19 +45,28 @@ export const createAccordion = ({
     "bi-caret-down": "bi bi-caret-down",
   };
 
+  const { base, itemBase, head, body, leadIcon, trailIcon } =
+    accordionClassNames({
+      icon: withIcon,
+      outline: outline,
+      elevated: elevated,
+    });
+
   // Return the accordion HTML structure based on content
   return `
-    <section class="w-full divide-y rounded divide-slate-200 ${outlineClass} ${elevatedClass}">
+    <section class="${base()}">
       ${content
         .map(
           (item, index) => `
-            <details class="p-4 group" ${index === 0 ? "open" : ""}>
-              <summary class="[&::-webkit-details-marker]:hidden relative pr-8 font-medium list-none cursor-pointer ${typeClass} focus-visible:outline-none transition-colors duration-300">
-                ${withIcon ? `<i class="${item.icon} text-2xl text-primary-800"></i>` : ""}
+            <details class="${itemBase()}" ${index === 0 ? "open" : ""}>
+              <summary class="${head()}">
+                ${withIcon ? `<i class="${item.icon} ${leadIcon()}"></i>` : ""}
                 ${item.title}
-                <i class="${toggleIcons[toggleIcon]} absolute right-0 text-xl transition duration-300 top-1 shrink-0 group-open:rotate-180"></i>
+                <i class="${toggleIcons[toggleIcon]} ${trailIcon()}"></i>
               </summary>
-              <p class="mt-4 text-slate-500 transition duration-300 ">${item.description}</p>
+              <div class="${body()}">
+                <p>${item.description}</p>
+              </div>
             </details>
           `,
         )

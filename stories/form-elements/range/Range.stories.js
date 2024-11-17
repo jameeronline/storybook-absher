@@ -1,7 +1,7 @@
 import { createRangeSelect } from "./Range";
 
 export default {
-  title: "Form Elements/RangeSelect",
+  title: "Form Elements/Range",
   tags: ["autodocs"],
   render: createRangeSelect,
   argTypes: {

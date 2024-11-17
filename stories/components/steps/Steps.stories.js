@@ -1,7 +1,7 @@
-import { createStepProgressBar } from "./Step";
+import { createStepProgressBar } from "./Steps";
 
 export default {
-  title: "Components / Step Progress Bar",
+  title: "Components / Steps",
   tags: ["autodocs"],
   render: createStepProgressBar,
   argTypes: {},

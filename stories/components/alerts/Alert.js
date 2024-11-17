@@ -19,28 +19,28 @@ export const createAlert = ({
       contentWrapper: "flex gap-4 items-center",
       title_slot: "flex-1 font-semibold mb-1",
       message_slot: "text-md",
-      leadingIcon_slot: "",
+      leadingIcon_slot: "text-2xl",
       dismissIcon_slot:
-        "inline-flex items-center justify-center h-8 w-8 text-xs font-medium rounded-full",
+        "inline-flex items-center justify-center h-8 w-8 text-xs font-medium rounded-full transition duration-300",
       actionButtons_slot: "flex gap-2 mt-4",
     },
     variants: {
       type: {
         success: {
-          base: "border-success-100 bg-success-50 text-success-500",
-          dismissIcon_slot: "text-success-500 hover:bg-success-100",
+          base: "border-success-100 bg-success-50 text-success-800",
+          dismissIcon_slot: "text-success-800 hover:bg-success-100",
         },
         danger: {
-          base: "border-danger-100 bg-danger-50 text-danger-500",
-          dismissIcon_slot: "text-danger-500 hover:bg-danger-100",
+          base: "border-danger-100 bg-danger-50 text-danger-800",
+          dismissIcon_slot: "text-danger-800 hover:bg-danger-100",
         },
         info: {
-          base: "border-info-100 bg-info-50 text-info-500",
-          dismissIcon_slot: "text-info-500 hover:bg-info-100",
+          base: "border-info-100 bg-info-50 text-info-800",
+          dismissIcon_slot: "text-info-800 hover:bg-info-100",
         },
         warning: {
-          base: "border-warning-100 bg-warning-50 text-warning-500",
-          dismissIcon_slot: "text-warning-500 hover:bg-warning-100",
+          base: "border-warning-100 bg-warning-50 text-warning-800",
+          dismissIcon_slot: "text-warning-800 hover:bg-warning-100",
         },
       },
     },
@@ -95,7 +95,7 @@ export const createAlert = ({
   return `
     <div class="${base()}" role="alert">
       <div class="${contentWrapper()}">
-        ${leadingIcon ? `<i class="bi ${leadingIconMakrup[type]} text-2xl"></i>` : ""}
+        ${leadingIcon ? `<i class="bi ${leadingIconMakrup[type]} ${leadingIcon_slot()}"></i>` : ""}
         <div class="flex-1">
           ${title ? `<h3 class="${title_slot()}">${title}</h3>` : ""}
           ${message ? `<p class="${message_slot()}">${message}</p>` : ""}
