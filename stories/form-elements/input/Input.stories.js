@@ -91,15 +91,15 @@ export default {
   args: {
     as: "text",
     size: "default",
-    isLabel: false,
+    isLabel: true,
     label: "Your Name",
     placeholder: true,
     placeholderText: "Enter your name",
     helperText: false,
     helperLabel: "Text field with helper text",
-    isLeadIcon: false,
+    isLeadIcon: true,
     leadingIcon: "person",
-    isTrailIcon: false,
+    isTrailIcon: true,
     trailingIcon: "calendar",
   },
 };

@@ -4,6 +4,9 @@ import { withThemeByClassName } from "@storybook/addon-themes";
 //Dark Mode / Light Mode
 import { themes } from "@storybook/theming";
 
+//icons
+import { DarkIcon, LightIcon, AbsherIcon } from "./icons";
+
 //format html
 import { getFormattedHtml } from "../stories/utilities/code-format";
 
@@ -27,21 +30,63 @@ document.addEventListener("DOMContentLoaded", () => {
   initDropdownInteractions();
 });
 
+// Define your theme options
+const themeOptions = [
+  { value: "light", title: "Light Theme", icon: "lightning" },
+  { value: "dark", title: "Dark Theme", icon: "lightningoff" },
+];
+
+// Define your environment options
+const environmentOptions = [
+  { value: "indi", title: "Individual", icon: "useralt" },
+  { value: "busi", title: "Business", icon: "admin" },
+  { value: "gov", title: "Government", icon: "flag" },
+];
+
+export const globalTypes = {
+  theme: {
+    name: "Theme",
+    description: "Global theme for components",
+    defaultValue: "light",
+    toolbar: {
+      icon: "lightning",
+      items: themeOptions.map((theme) => ({
+        value: theme.value,
+        title: theme.title,
+        icon: theme.icon,
+      })),
+    },
+  },
+  environment: {
+    name: "Environment",
+    description: "Website environment",
+    defaultValue: "indi",
+    toolbar: {
+      icon: "globe",
+      items: environmentOptions.map((env) => ({
+        value: env.value,
+        title: env.title,
+        icon: env.icon,
+      })),
+    },
+  },
+};
+
 //UI config
 const preview = {
   decorators: [
-    (Story) => {
+    (Story, context) => {
+      const { theme, environment } = context.globals;
+
+      // Apply theme and environment-specific logic here
+      document.documentElement.setAttribute("data-theme", theme);
+      document.documentElement.setAttribute("data-environment", environment);
+
+      //format HTML
       const storyOutput = Story(); // Get the Story output (HTMLElement or string)
       const formattedHTML = getFormattedHtml(storyOutput); // Format the HTML based on type
       return `${formattedHTML}`; // Return formatted HTML
     },
-    withThemeByClassName({
-      themes: {
-        light: "",
-        dark: "dark",
-      },
-      defaultTheme: "dark",
-    }),
   ],
   parameters: {
     options: {
@@ -59,6 +104,7 @@ const preview = {
             "Assets",
             "*",
           ],
+          "Typography",
           "Design Tokens",
           "Components",
           "Form Elements",

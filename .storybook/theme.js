@@ -10,7 +10,7 @@ export default create({
   // Branding
   brandTitle: "Government Agency Storybook", // The title that appears in the Storybook toolbar
   brandUrl: "https://example.gov", // The URL to which the title/logo links
-  brandImage: "https://storybook.js.org/images/placeholders/350x150.png", // The logo image displayed in the Storybook toolbar
+  //brandImage: "https://storybook.js.org/images/placeholders/350x150.png", // The logo image displayed in the Storybook toolbar
   brandTarget: "_self", // The target behavior when clicking the logo (default opens in same tab)
 
   // Colors

@@ -15,7 +15,7 @@ export function createCardComponent({
   };
 
   return `
-      <div class="flex flex-col justify-start gap-4 p-6 rounded-2xl border border-slate-200 shadow-xl shadow-slate-100 hover:shadow-2xl hover:shadow-slate-200 relative transition-all duration-300">
+      <div class="group flex flex-col justify-start gap-4 p-6 rounded-2xl border border-slate-200 shadow-xl shadow-slate-100 hover:shadow-2xl hover:shadow-slate-200 relative transition-all duration-300">
         ${showIcon ? `<div class="w-10 h-10 bg-primary-50 inline-flex justify-center items-center rounded-full">${icons[iconName]}</div>` : ""}
         <div class="flex flex-col mt-4 gap-2 line-clamp-2">
           <div class="text-base">
@@ -26,7 +26,7 @@ export function createCardComponent({
           </div>
         </div>
         <div class="flex justify-end">
-          <a href="#" class="flex items-center text-primary-800 no-underline gap-2 font-semibold">
+          <a href="#" class="flex items-center text-primary-800 hover:text-primary-900 no-underline gap-2 font-semibold relative transition-all left-0 duration-300 group-hover:left-2">
             Read More
               <i class="bi bi-arrow-right"></i>
           </a>

@@ -1,5 +1,5 @@
 export default {
-  title: "StyleGuide / Typography / Heading",
+  title: "Typography / Playground",
   tags: ["autodocs"],
   render: ({ label, type, fontWeight, color, as, customColor }) => {
     const fontType = {
@@ -14,11 +14,11 @@ export default {
       "Heading 4": "text-xl",
       "Heading 5": "text-lg",
       "Heading 6": "text-base",
-      "Body Text - Large": "text-lg",
-      "Body Text - Regular": "text-base",
-      "Body Text - Medium": "text-md",
-      "Body Text - Small": "text-sm",
-      "Body Text - Extra Small": "text-xs",
+      "Paragraph - Large": "text-lg",
+      "Paragraph - Regular": "text-base",
+      "Paragraph - Medium": "text-md",
+      "Paragraph - Small": "text-sm",
+      "Paragraph - Extra Small": "text-xs",
     };
 
     const fontColor = {
@@ -59,14 +59,14 @@ export default {
         "Heading 4",
         "Heading 5",
         "Heading 6",
-        "Body Text - Large",
-        "Body Text - Medium",
-        "Body Text - Regular",
-        "Body Text - Small",
-        "Body Text - Extra Small",
+        "Paragraph - Large",
+        "Paragraph - Medium",
+        "Paragraph - Regular",
+        "Paragraph - Small",
+        "Paragraph - Extra Small",
       ],
       description:
-        "Select the size/type of the typography (Display, Heading, or Body Text).",
+        "Select the size/type of the typography (Display, Heading, or Paragraph).",
       table: {
         defaultValue: { summary: "Display 1" },
       },
@@ -205,40 +205,40 @@ export const Heading6 = {
 
 export const BodyTextMedium = {
   args: {
-    type: "Body Text - Medium",
-    label: "Body Text - Medium",
+    type: "Paragraph - Medium",
+    label: "Paragraph - Medium",
     as: "p",
   },
 };
 
 export const BodyTextLarge = {
   args: {
-    type: "Body Text - Large",
-    label: "Body Text - Large",
+    type: "Paragraph - Large",
+    label: "Paragraph - Large",
     as: "p",
   },
 };
 
 export const BodyTextRegular = {
   args: {
-    type: "Body Text - Regular",
-    label: "Body Text - Regular",
+    type: "Paragraph - Regular",
+    label: "Paragraph - Regular",
     as: "p",
   },
 };
 
 export const BodyTextSmall = {
   args: {
-    type: "Body Text - Small",
-    label: "Body Text - Small",
+    type: "Paragraph - Small",
+    label: "Paragraph - Small",
     as: "p",
   },
 };
 
 export const BodyTextExtraSmall = {
   args: {
-    type: "Body Text - Extra Small",
-    label: "Body Text - Extra Small",
+    type: "Paragraph - Extra Small",
+    label: "Paragraph - Extra Small",
     as: "p",
   },
 };
