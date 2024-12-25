@@ -23,7 +23,7 @@ export const createNotificationChip = ({
         ${leadingButton ? `${buttonEl}` : ""}
         <div class="flex items-center gap-1 text-slate-500">
           <span class="hidden md:block">${description}</span>
-          <a href="${link}" class="inline-flex items-center justify-center gap-2 tracking-wide transition duration-300 justify-self-center text-emerald-500 hover:text-emerald-600 focus:text-emerald-700 focus-visible:outline-none">
+          <a href="${link}" class="inline-flex items-center justify-center gap-2 tracking-wide transition duration-300 justify-self-center text-primary-500 hover:text-primary-600 focus:text-emerald-700 focus-visible:outline-none">
             <span>${anchorText}</span>
             <span class="relative only:-mx-6">
                 <i class="bi bi-arrow-right text-2xl"></i>

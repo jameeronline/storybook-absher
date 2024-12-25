@@ -1,0 +1,14 @@
+/* Default(individual primary colors) */
+html[data-theme="business"] {
+    --primary-50: #ecfff7;
+    --primary-100: #d3ffee;
+    --primary-200: #aaffde;
+    --primary-300: #69ffc5;
+    --primary-400: #21ffa6;
+    --primary-500: #00f288;
+    --primary-600: #00ca6d;
+    --primary-700: #009e58;
+    --primary-800: #008550;
+    --primary-900: #02653f;
+    --primary-950: #003921;
+  }
